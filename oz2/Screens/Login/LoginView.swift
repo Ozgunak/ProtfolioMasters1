@@ -50,7 +50,7 @@ struct LoginView: View {
 }
 
 
-struct Login_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
     }

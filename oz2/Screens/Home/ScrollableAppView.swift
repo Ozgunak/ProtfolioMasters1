@@ -9,7 +9,31 @@ import SwiftUI
 
 struct ScrollableAppView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Example Apps")
+                .font(.title2)
+                .padding(.bottom, 4)
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(content: {
+                    ForEach(1...10, id: \.self) { count in
+                        //                            NavigationLink(destination: DetailView2()) {
+                        VStack {
+                            Image("phoneScreen").resizable().aspectRatio(contentMode: .fill)
+                            Text("App \(count)")
+                        }
+                        .frame(width: 100)
+                        .padding(4)
+                        
+                        //                            }
+                    }
+                })
+            }
+            .frame(height: 250)
+        }
+        .padding(.vertical)
+        .background(.thinMaterial)
+        .cornerRadius(20)
+        .shadow(radius: 2)
     }
 }
 

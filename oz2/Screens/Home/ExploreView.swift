@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct ExploreView: View {
+    @State private var searchText = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(.darkGray).ignoresSafeArea()
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    TextField("Search User, Project or Title", text: $searchText).textFieldStyle(.roundedBorder).padding().shadow(radius: 3)
+                    ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+                        FlowItemView(profile: UserProfile(name: "oz", title: "iOS", country: "CA")).padding()
+                    }
+                }
+            }
+        }
     }
 }
 

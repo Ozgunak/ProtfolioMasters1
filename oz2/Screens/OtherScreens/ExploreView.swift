@@ -16,7 +16,7 @@ struct ExploreView: View {
                 VStack {
                     TextField("Search User, Project or Title", text: $searchText).textFieldStyle(.roundedBorder).padding().shadow(radius: 3)
                     ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-                        FlowItemView(profile: UserProfile(name: "oz", title: "iOS", country: "CA")).padding()
+                        FlowItemView(profile: UserProfileModel(name: "oz", title: "iOS", country: "CA")).padding()
                     }
                 }
             }

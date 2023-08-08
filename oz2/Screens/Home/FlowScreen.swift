@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct FlowScreen: View {
-    @State var flowItems: [UserProfile]
+    @EnvironmentObject var flowVM: FlowViewModel
     var body: some View {
         ScrollView(showsIndicators: false) {
             
             VStack(alignment: .leading) {
+                
+                AppHeaderView()
+                
                 Text("Featured Portfolios").foregroundColor(.white).padding(.horizontal)
                 
-                ForEach(flowItems) { profile in
+                ForEach(flowVM.flowItems) { profile in
                     NavigationLink(destination: ProfileScreen(user: profile)) {
                         FlowItemView(profile: profile).padding(.horizontal)
                     }
@@ -31,13 +34,14 @@ struct FlowScreen_Previews: PreviewProvider {
         ZStack {
             Color(.darkGray)
                 .ignoresSafeArea()
-            FlowScreen(flowItems: profiles)
+            FlowScreen()
+                .environmentObject(FlowViewModel())
         }
     }
 }
 
 struct FlowItemView: View {
-    @State var profile: UserProfile
+    @State var profile: UserProfileModel
     var body: some View {
         VStack(alignment: .leading) {
             FlowHeaderView(name: $profile.name, title: $profile.title, country: $profile.country)
@@ -67,7 +71,7 @@ struct FlowHeaderView: View {
 }
 
 struct FlowImageView: View {
-    @Binding var projects: [Project]?
+    @Binding var projects: [ProjectModel]?
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
@@ -86,11 +90,4 @@ struct FlowImageView: View {
     }
 }
 
-struct UserProfile: Identifiable, Hashable, Codable {
-    var id = UUID().uuidString
-    var name: String
-    var title: String
-    var country: String
-    var profileImage: String?
-    var projects: [Project]?
-}
+

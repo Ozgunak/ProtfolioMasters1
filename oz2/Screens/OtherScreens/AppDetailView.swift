@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppDetailView: View {
-    let project: Project
+    let project: ProjectModel
     var editActive:Bool = false
 
     @State private var nameText: String
@@ -16,7 +16,7 @@ struct AppDetailView: View {
     @State private var detailText: String = "dsadsadsadsad"
 
     
-    init(project: Project) {
+    init(project: ProjectModel) {
         self.project = project
         _nameText = State(initialValue: project.name)
         _descriptionText = State(initialValue: project.description)
@@ -131,6 +131,6 @@ enum CarouselConstants {
 
 struct AppDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AppDetailView(project: Project(name: "New Project", description: "Brand New Project That I Created", tech: ["tech 1", "tech 2", "tech 3", "tech 4", ], detail: "What I learned in this project"))
+        AppDetailView(project: ProjectModel(name: "New Project", description: "Brand New Project That I Created", tech: ["tech 1", "tech 2", "tech 3", "tech 4", ], detail: "What I learned in this project"))
     }
 }

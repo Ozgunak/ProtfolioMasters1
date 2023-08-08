@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailAppView: View {
-    let project: Project = Project(name: "Sample", description: "Sample project I have been working on for some time.", tech: ["SwiftUI", "Firebase", "Github", "CoreData"], developmentTime: "1 weeks")
+    let project: ProjectModel = ProjectModel(name: "Sample", description: "Sample project I have been working on for some time.", tech: ["SwiftUI", "Firebase", "Github", "CoreData"], developmentTime: "1 weeks")
 
     var body: some View {
         VStack {
@@ -45,16 +45,6 @@ struct DetailAppView: View {
     }
 }
 
-struct Project : Hashable, Identifiable, Codable {
-    var id = UUID().uuidString
-    var name: String
-    var description: String
-    var tech: [String]
-    var developmentTime: String?
-    var imageNames: [String]?
-    var detail: String?
-    
-}
 
 
 struct DetailAppView_Previews: PreviewProvider {

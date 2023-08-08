@@ -25,6 +25,10 @@
 		F0CD40162A7AC82100420ADE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40152A7AC82100420ADE /* SplashScreen.swift */; };
 		F0CD401A2A7AECC600420ADE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40192A7AECC600420ADE /* LoginView.swift */; };
 		F0CD40202A7AFB9200420ADE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD401F2A7AFB9200420ADE /* UserModel.swift */; };
+		F0CD40222A7B1D9B00420ADE /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40212A7B1D9B00420ADE /* NewProjectView.swift */; };
+		F0CD40242A7B337E00420ADE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40232A7B337E00420ADE /* ProjectModel.swift */; };
+		F0CD40262A81E1C000420ADE /* FlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40252A81E1C000420ADE /* FlowViewModel.swift */; };
+		F0CD40282A81E25300420ADE /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40272A81E25300420ADE /* UserProfileModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		F0CD40152A7AC82100420ADE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		F0CD40192A7AECC600420ADE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F0CD401F2A7AFB9200420ADE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F0CD40212A7B1D9B00420ADE /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
+		F0CD40232A7B337E00420ADE /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
+		F0CD40252A81E1C000420ADE /* FlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowViewModel.swift; sourceTree = "<group>"; };
+		F0CD40272A81E25300420ADE /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +90,8 @@
 			children = (
 				F04712842A708F9900DC0A68 /* oz2App.swift */,
 				F04712862A708F9900DC0A68 /* ContentView.swift */,
-				F0CD401C2A7AFB3C00420ADE /* Models */,
 				F04712972A75D6C400DC0A68 /* Screens */,
+				F0CD401C2A7AFB3C00420ADE /* Models */,
 				F04712932A7441FB00DC0A68 /* DetailAppView.swift */,
 				F04712882A708F9A00DC0A68 /* Assets.xcassets */,
 				F047128A2A708F9A00DC0A68 /* oz2.entitlements */,
@@ -106,6 +114,7 @@
 				F0CD401E2A7AFB5700420ADE /* Login */,
 				F0CD401D2A7AFB5000420ADE /* Splash */,
 				F04712982A75D6D200DC0A68 /* Home */,
+				F0CD40292A81E29200420ADE /* OtherScreens */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -113,16 +122,9 @@
 		F04712982A75D6D200DC0A68 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F0CD40272A81E25300420ADE /* UserProfileModel.swift */,
 				F04712A62A79FDF900DC0A68 /* FlowScreen.swift */,
-				F04712952A75D62D00DC0A68 /* ProfileScreen.swift */,
-				F0CD40132A7ABCA000420ADE /* NewProfileView.swift */,
-				F04712A82A7A0CF900DC0A68 /* ExploreView.swift */,
-				F04712A42A75F9D500DC0A68 /* AppDetailView.swift */,
-				F04712992A75D6E900DC0A68 /* InfoView.swift */,
-				F047129C2A75D74900DC0A68 /* SocialLinkViews.swift */,
-				F047129E2A75D76B00DC0A68 /* ExpreienceView.swift */,
-				F04712A02A75D77F00DC0A68 /* SkillsView.swift */,
-				F04712A22A75D7E300DC0A68 /* ScrollableAppView.swift */,
+				F0CD40252A81E1C000420ADE /* FlowViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				F0CD401F2A7AFB9200420ADE /* UserModel.swift */,
+				F0CD40232A7B337E00420ADE /* ProjectModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,6 +152,23 @@
 				F0CD40192A7AECC600420ADE /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F0CD40292A81E29200420ADE /* OtherScreens */ = {
+			isa = PBXGroup;
+			children = (
+				F04712952A75D62D00DC0A68 /* ProfileScreen.swift */,
+				F0CD40132A7ABCA000420ADE /* NewProfileView.swift */,
+				F0CD40212A7B1D9B00420ADE /* NewProjectView.swift */,
+				F04712A82A7A0CF900DC0A68 /* ExploreView.swift */,
+				F04712A42A75F9D500DC0A68 /* AppDetailView.swift */,
+				F04712992A75D6E900DC0A68 /* InfoView.swift */,
+				F047129C2A75D74900DC0A68 /* SocialLinkViews.swift */,
+				F047129E2A75D76B00DC0A68 /* ExpreienceView.swift */,
+				F04712A02A75D77F00DC0A68 /* SkillsView.swift */,
+				F04712A22A75D7E300DC0A68 /* ScrollableAppView.swift */,
+			);
+			path = OtherScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,13 +245,17 @@
 				F047129F2A75D76B00DC0A68 /* ExpreienceView.swift in Sources */,
 				F0CD40162A7AC82100420ADE /* SplashScreen.swift in Sources */,
 				F04712962A75D62D00DC0A68 /* ProfileScreen.swift in Sources */,
+				F0CD40222A7B1D9B00420ADE /* NewProjectView.swift in Sources */,
 				F04712A32A75D7E300DC0A68 /* ScrollableAppView.swift in Sources */,
+				F0CD40262A81E1C000420ADE /* FlowViewModel.swift in Sources */,
 				F04712942A7441FB00DC0A68 /* DetailAppView.swift in Sources */,
 				F0CD401A2A7AECC600420ADE /* LoginView.swift in Sources */,
 				F04712872A708F9900DC0A68 /* ContentView.swift in Sources */,
 				F047129D2A75D74900DC0A68 /* SocialLinkViews.swift in Sources */,
 				F04712A72A79FDFA00DC0A68 /* FlowScreen.swift in Sources */,
+				F0CD40242A7B337E00420ADE /* ProjectModel.swift in Sources */,
 				F0CD40202A7AFB9200420ADE /* UserModel.swift in Sources */,
+				F0CD40282A81E25300420ADE /* UserProfileModel.swift in Sources */,
 				F04712A52A75F9D500DC0A68 /* AppDetailView.swift in Sources */,
 				F047129A2A75D6E900DC0A68 /* InfoView.swift in Sources */,
 				F0CD40142A7ABCA000420ADE /* NewProfileView.swift in Sources */,

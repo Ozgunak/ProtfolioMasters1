@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var currentTab: Tabs = .home
+    @State private var currentTab: Tabs = .profile
     @Namespace var animation
     
     var body: some View {
@@ -16,28 +16,61 @@ struct ContentView: View {
             ZStack {
                 Color(.darkGray)
                     .ignoresSafeArea()
-                VStack(alignment: .leading) {
-                    ScrollView(showsIndicators: false) {
-                        AppHeaderView()
+//                VStack(alignment: .leading) {
+//                    ScrollView(showsIndicators: false) {
                         
-                        switch currentTab {
-                        case .home:
-                            FlowScreen(flowItems: profiles)
-                        case .inspect:
-                            ProfileScreen()
-                        case .explore:
-                            ExploreView()
-                        case .profile:
-                            Text("profile")
+//                        switch currentTab {
+//                        case .home:
+//                            FlowScreen(flowItems: profiles)
+//                        case .inspect:
+//                            ProfileScreen()
+//                        case .explore:
+//                            ExploreView()
+//                        case .profile:
+//                            NewProjectView()
+//                        }
+                        
+//                    }
+//                    Spacer()
+//                    TabBar()
+//                }
+
+                TabView {
+
+                    FlowScreen()
+                        .background(.gray)
+                        .tabItem {
+                            Image(systemName: "house")
+                            Text("Home")
+                        }.environmentObject(FlowViewModel())
+                    
+                    ExploreView()
+                        .background(.gray)
+                        .tabItem {
+                            Image(systemName: "gyroscope")
+                            Text("Explore")
                         }
-                    }
-                        Spacer()
-                        TabBar()
-                    }
+                    NewProfileView()
+                        .background(.gray)
+                        .tabItem {
+                            Image(systemName: "person.crop.circle")
+                            Text("Profile")
+                        }
+                    
+                    NewProjectView()
+                        .background(.gray)
+                        .tabItem {
+                            Image(systemName: "briefcase")
+                            Text("Projects")
+                        }
+                }                    
+                .navigationTitle(Text("Portfolio Masters"))
+                .navigationBarTitleDisplayMode(.automatic)
             }
+            
         }
     }
-        
+    
     @ViewBuilder
     func TabBar()->some View {
         
@@ -87,4 +120,11 @@ struct AppHeaderView: View {
             Color(.gray).frame(width: .infinity, height: 3)
         }
     }
+}
+
+enum Tabs: String, CaseIterable {
+    case home = "house"
+    case inspect = "person.text.rectangle"
+    case explore = "gyroscope"
+    case profile = "person"
 }

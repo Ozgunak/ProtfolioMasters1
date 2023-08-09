@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppDetailView: View {
-    let project: ProjectModel
+    var project: ProjectModel
     var editActive:Bool = false
 
     @State private var nameText: String
@@ -65,68 +65,6 @@ struct AppDetailView: View {
         }
     }
 
-}
-
-struct CarouselDetailView: View {
-    let imageNames: [String]
-
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: CarouselConstants.spacing) {
-                ForEach(imageNames.indices, id: \.self) { index in
-                    CarouselImage(imageName: imageNames[index])
-                }
-            }
-            .padding(.horizontal, UIScreen.main.bounds.width / 3 - CarouselConstants.spacing * 2)
-        }
-    }
-}
-
-struct CarouselImage: View {
-    let imageName: String
-    
-    var body: some View {
-        GeometryReader { geometry in
-            NavigationLink {
-                ZStack {
-                    Color(.black)
-                    Image(imageName).resizable().scaledToFit()
-                }
-            } label: {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: UIScreen.main.bounds.width / 3)
-                    .clipped()
-                    .shadow(radius: 5)
-                .scaleEffect(self.scaleEffect(for: geometry))
-            }
-        }
-        .frame(width: UIScreen.main.bounds.width / 3, height: CarouselConstants.imageHeight)
-    }
-    
-    private func scaleEffect(for geometry: GeometryProxy) -> CGFloat {
-        let absoluteCenterX = geometry.frame(in: .global).midX
-        let distanceFromCenter = abs(UIScreen.main.bounds.width / 2 - absoluteCenterX)
-        
-        let relativeDistance = distanceFromCenter / (UIScreen.main.bounds.width / 2)
-        
-        let scaleDifference = CarouselConstants.centerImageScale - CarouselConstants.sideImageScale
-        let scale = CarouselConstants.centerImageScale - scaleDifference * relativeDistance
-        
-        return scale
-    }
-}
-
-
-
-enum CarouselConstants {
-    static let spacing: CGFloat = 8
-    static let sideImageScale: CGFloat = 0.7
-    static let centerImageScale: CGFloat = 1.1
-    static let viewHeight: CGFloat = 320
-    static let imageHeight: CGFloat = 300
-    
 }
 
 struct AppDetailView_Previews: PreviewProvider {

@@ -11,8 +11,8 @@ class FlowViewModel: ObservableObject {
     @Published var flowItems: [UserProfileModel] = []
     
     init() {
-        flowItems.append(UserProfileModel(name: "Oz Aksoy", title: "iOS Developer", country: "CA", projects: projects))
-        flowItems.append(UserProfileModel(name: "Zey Aksoy", title: "iOS Developer", country: "CA", projects: projects))
+        flowItems.append(UserProfileModel(id: UUID().uuidString, name: "Oz Aksoy", title: "iOS Developer", country: "CA", projects: testProjects))
+        flowItems.append(UserProfileModel(id: UUID().uuidString, name: "Zey Aksoy", title: "Data Analyzer", country: "CA", projects: testProjects))
     }
     
     func saveUserProfile() {

@@ -9,17 +9,18 @@ import SwiftUI
 
 struct FlowScreen: View {
     @EnvironmentObject var flowVM: FlowViewModel
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             
             VStack(alignment: .leading) {
                 
-                AppHeaderView()
+                AppHeaderView(isNewUser: false)
                 
                 Text("Featured Portfolios").foregroundColor(.white).padding(.horizontal)
                 
                 ForEach(flowVM.flowItems) { profile in
-                    NavigationLink(destination: ProfileScreen(user: profile)) {
+                    NavigationLink(destination: UsersProfileScreen(user: profile).environmentObject(MyProfileViewModel())) {
                         FlowItemView(profile: profile).padding(.horizontal)
                     }
                 }
@@ -31,11 +32,13 @@ struct FlowScreen: View {
 
 struct FlowScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            Color(.darkGray)
-                .ignoresSafeArea()
-            FlowScreen()
-                .environmentObject(FlowViewModel())
+        NavigationStack {
+            ZStack {
+                Color(.darkGray)
+                    .ignoresSafeArea()
+                FlowScreen()
+                    .environmentObject(FlowViewModel())
+            }
         }
     }
 }

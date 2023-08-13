@@ -22,12 +22,14 @@ struct oz2App: App {
     
     @StateObject var flowVM = FlowViewModel()
     @StateObject var profileVM = MyProfileViewModel()
+//    @StateObject var flowItemVM = FlowDetailViewModel()
     
     var body: some Scene {
         WindowGroup {
             LoginView()
                 .environmentObject(flowVM)
                 .environmentObject(profileVM)
+//                .environmentObject(flowItemVM)
         }
     }
 }

@@ -19,6 +19,13 @@
 		F00277772A84116B008A9615 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F00277762A84116B008A9615 /* FirebaseFirestoreSwift */; };
 		F00277792A84116B008A9615 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F00277782A84116B008A9615 /* FirebaseStorage */; };
 		F002777B2A841AFB008A9615 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002777A2A841AFB008A9615 /* LoginViewModel.swift */; };
+		F002777D2A84451A008A9615 /* FlowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002777C2A84451A008A9615 /* FlowListView.swift */; };
+		F002777F2A844777008A9615 /* FlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002777E2A844777008A9615 /* FlowModel.swift */; };
+		F00277812A8448C9008A9615 /* FlowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277802A8448C9008A9615 /* FlowDetailView.swift */; };
+		F00277832A844AA3008A9615 /* FlowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277822A844AA3008A9615 /* FlowDetailViewModel.swift */; };
+		F00277852A84839F008A9615 /* FlowListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277842A84839F008A9615 /* FlowListViewModel.swift */; };
+		F00277872A85CA37008A9615 /* ProjDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277862A85CA37008A9615 /* ProjDetailView.swift */; };
+		F00277892A85CA42008A9615 /* ProjDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */; };
 		F04712852A708F9900DC0A68 /* oz2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712842A708F9900DC0A68 /* oz2App.swift */; };
 		F04712872A708F9900DC0A68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712862A708F9900DC0A68 /* ContentView.swift */; };
 		F04712892A708F9A00DC0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04712882A708F9A00DC0A68 /* Assets.xcassets */; };
@@ -41,6 +48,7 @@
 		F0CD40242A7B337E00420ADE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40232A7B337E00420ADE /* ProjectModel.swift */; };
 		F0CD40262A81E1C000420ADE /* FlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40252A81E1C000420ADE /* FlowViewModel.swift */; };
 		F0CD40282A81E25300420ADE /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40272A81E25300420ADE /* UserProfileModel.swift */; };
+		F0E833E42A882F7900C03A06 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E833E32A882F7900C03A06 /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +60,13 @@
 		F002776D2A8291C4008A9615 /* CarouselDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselDetailView.swift; sourceTree = "<group>"; };
 		F002776F2A841138008A9615 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F002777A2A841AFB008A9615 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F002777C2A84451A008A9615 /* FlowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowListView.swift; sourceTree = "<group>"; };
+		F002777E2A844777008A9615 /* FlowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowModel.swift; sourceTree = "<group>"; };
+		F00277802A8448C9008A9615 /* FlowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowDetailView.swift; sourceTree = "<group>"; };
+		F00277822A844AA3008A9615 /* FlowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowDetailViewModel.swift; sourceTree = "<group>"; };
+		F00277842A84839F008A9615 /* FlowListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowListViewModel.swift; sourceTree = "<group>"; };
+		F00277862A85CA37008A9615 /* ProjDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjDetailView.swift; sourceTree = "<group>"; };
+		F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjDetailViewModel.swift; sourceTree = "<group>"; };
 		F04712812A708F9900DC0A68 /* oz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04712842A708F9900DC0A68 /* oz2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oz2App.swift; sourceTree = "<group>"; };
 		F04712862A708F9900DC0A68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +91,8 @@
 		F0CD40232A7B337E00420ADE /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		F0CD40252A81E1C000420ADE /* FlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowViewModel.swift; sourceTree = "<group>"; };
 		F0CD40272A81E25300420ADE /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
+		F0E833E32A882F7900C03A06 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		F0E833E52A8875E300C03A06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +167,7 @@
 		F04712832A708F9900DC0A68 /* oz2 */ = {
 			isa = PBXGroup;
 			children = (
+				F0E833E52A8875E300C03A06 /* Info.plist */,
 				F002776F2A841138008A9615 /* GoogleService-Info.plist */,
 				F04712842A708F9900DC0A68 /* oz2App.swift */,
 				F04712862A708F9900DC0A68 /* ContentView.swift */,
@@ -217,6 +235,14 @@
 			children = (
 				F0CD40192A7AECC600420ADE /* LoginView.swift */,
 				F002777A2A841AFB008A9615 /* LoginViewModel.swift */,
+				F00277842A84839F008A9615 /* FlowListViewModel.swift */,
+				F002777C2A84451A008A9615 /* FlowListView.swift */,
+				F00277822A844AA3008A9615 /* FlowDetailViewModel.swift */,
+				F00277802A8448C9008A9615 /* FlowDetailView.swift */,
+				F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */,
+				F00277862A85CA37008A9615 /* ProjDetailView.swift */,
+				F0E833E32A882F7900C03A06 /* Photo.swift */,
+				F002777E2A844777008A9615 /* FlowModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -319,16 +345,24 @@
 				F002776E2A8291C4008A9615 /* CarouselDetailView.swift in Sources */,
 				F00277692A828F70008A9615 /* NewProjectViewModel.swift in Sources */,
 				F047129F2A75D76B00DC0A68 /* ExpreienceView.swift in Sources */,
+				F00277892A85CA42008A9615 /* ProjDetailViewModel.swift in Sources */,
 				F0CD40162A7AC82100420ADE /* SplashScreen.swift in Sources */,
 				F04712962A75D62D00DC0A68 /* UsersProfileScreen.swift in Sources */,
+				F002777F2A844777008A9615 /* FlowModel.swift in Sources */,
 				F0CD40222A7B1D9B00420ADE /* NewProjectView.swift in Sources */,
 				F04712A32A75D7E300DC0A68 /* ScrollableAppView.swift in Sources */,
+				F00277812A8448C9008A9615 /* FlowDetailView.swift in Sources */,
+				F00277872A85CA37008A9615 /* ProjDetailView.swift in Sources */,
+				F002777D2A84451A008A9615 /* FlowListView.swift in Sources */,
 				F002777B2A841AFB008A9615 /* LoginViewModel.swift in Sources */,
+				F0E833E42A882F7900C03A06 /* Photo.swift in Sources */,
 				F0CD40262A81E1C000420ADE /* FlowViewModel.swift in Sources */,
 				F04712942A7441FB00DC0A68 /* DetailAppView.swift in Sources */,
 				F0CD401A2A7AECC600420ADE /* LoginView.swift in Sources */,
 				F002776C2A8290B9008A9615 /* CarouselView.swift in Sources */,
 				F04712872A708F9900DC0A68 /* ContentView.swift in Sources */,
+				F00277832A844AA3008A9615 /* FlowDetailViewModel.swift in Sources */,
+				F00277852A84839F008A9615 /* FlowListViewModel.swift in Sources */,
 				F047129D2A75D74900DC0A68 /* SocialLinkViews.swift in Sources */,
 				F04712A72A79FDFA00DC0A68 /* FlowScreen.swift in Sources */,
 				F0CD40242A7B337E00420ADE /* ProjectModel.swift in Sources */,
@@ -470,8 +504,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = oz2/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Portfolio Masters";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app need photo library access.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -510,8 +546,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = oz2/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Portfolio Masters";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app need photo library access.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

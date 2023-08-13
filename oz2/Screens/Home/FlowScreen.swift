@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct FlowScreen: View {
     @EnvironmentObject var flowVM: FlowViewModel
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -17,7 +19,19 @@ struct FlowScreen: View {
                 
                 AppHeaderView(isNewUser: false)
                 
-                Text("Featured Portfolios").foregroundColor(.white).padding(.horizontal)
+                HStack {
+                    Text("Featured Portfolios").foregroundColor(.white).padding(.horizontal)
+                     Spacer()
+                    Button("log Out") {
+                        do {
+                            try Auth.auth().signOut()
+                            dismiss()
+                        } catch {
+                            print("ERROR: Log out Failled!! \(error.localizedDescription)")
+                        }
+                    }
+                    .padding(.trailing)
+                }
                 
                 ForEach(flowVM.flowItems) { profile in
                     NavigationLink(destination: UsersProfileScreen(user: profile).environmentObject(MyProfileViewModel())) {
@@ -47,7 +61,7 @@ struct FlowItemView: View {
     @State var profile: UserProfileModel
     var body: some View {
         VStack(alignment: .leading) {
-            FlowHeaderView(name: $profile.name, title: $profile.title, country: $profile.country)
+//            FlowHeaderView(name: $profile.name, title: $profile.title, country: $profile.country)
             FlowImageView(projects: $profile.projects)
             Text("Last Active: 5 mins ago").font(.caption)
         }.padding().background(.thinMaterial).cornerRadius(10)
@@ -55,9 +69,9 @@ struct FlowItemView: View {
 }
 
 struct FlowHeaderView: View {
-    @Binding var name: String
-    @Binding var title: String
-    @Binding var country: String
+    @State var name: String
+    @State var title: String
+    @State var country: String
     
     var body: some View {
         HStack {

@@ -68,24 +68,7 @@ struct FlowItemView: View {
     }
 }
 
-struct FlowHeaderView: View {
-    @State var name: String
-    @State var title: String
-    @State var country: String
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "person").padding().background(.thinMaterial).clipShape(Circle())
-            VStack(alignment: .leading) {
-                Text(name).font(.callout).fontWeight(.semibold)
-                HStack() {
-                    Text(title).font(.caption)
-                    Text(country).font(.caption)
-                }
-            }
-        }
-    }
-}
+
 
 struct FlowImageView: View {
     @Binding var projects: [ProjectModel]?

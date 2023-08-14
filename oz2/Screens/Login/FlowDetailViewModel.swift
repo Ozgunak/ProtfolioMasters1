@@ -90,7 +90,7 @@ class FlowDetailViewModel: ObservableObject {
                 do {
                     var newProf = item
                     newProf.profileImage = imageURLString
-                    try await db.collection("flowItem").document(docID).setData(newProf.dictionary)
+                    try await db.collection("flowItem").document(docID).setData(newProf.dictionary, merge: true)
                     // Update one field, creating the document if it does not exist.
     //                db.collection("cities").document("BJ").setData([ "capital": true ], merge: true)
                     print("😎 Profile Image updated successfully!")

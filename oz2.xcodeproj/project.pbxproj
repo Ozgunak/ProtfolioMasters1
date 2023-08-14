@@ -26,6 +26,7 @@
 		F00277852A84839F008A9615 /* FlowListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277842A84839F008A9615 /* FlowListViewModel.swift */; };
 		F00277872A85CA37008A9615 /* ProjDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277862A85CA37008A9615 /* ProjDetailView.swift */; };
 		F00277892A85CA42008A9615 /* ProjDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */; };
+		F01878432A89BD760088779D /* FlowHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01878422A89BD760088779D /* FlowHeaderView.swift */; };
 		F04712852A708F9900DC0A68 /* oz2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712842A708F9900DC0A68 /* oz2App.swift */; };
 		F04712872A708F9900DC0A68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712862A708F9900DC0A68 /* ContentView.swift */; };
 		F04712892A708F9A00DC0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04712882A708F9A00DC0A68 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		F00277842A84839F008A9615 /* FlowListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowListViewModel.swift; sourceTree = "<group>"; };
 		F00277862A85CA37008A9615 /* ProjDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjDetailView.swift; sourceTree = "<group>"; };
 		F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjDetailViewModel.swift; sourceTree = "<group>"; };
+		F01878422A89BD760088779D /* FlowHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHeaderView.swift; sourceTree = "<group>"; };
 		F04712812A708F9900DC0A68 /* oz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04712842A708F9900DC0A68 /* oz2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oz2App.swift; sourceTree = "<group>"; };
 		F04712862A708F9900DC0A68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				F002776B2A8290B9008A9615 /* CarouselView.swift */,
 				F002776D2A8291C4008A9615 /* CarouselDetailView.swift */,
+				F01878422A89BD760088779D /* FlowHeaderView.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				F0CD40242A7B337E00420ADE /* ProjectModel.swift in Sources */,
 				F00277632A82002F008A9615 /* AppHeaderView.swift in Sources */,
 				F0CD40202A7AFB9200420ADE /* UserModel.swift in Sources */,
+				F01878432A89BD760088779D /* FlowHeaderView.swift in Sources */,
 				F0CD40282A81E25300420ADE /* UserProfileModel.swift in Sources */,
 				F04712A52A75F9D500DC0A68 /* AppDetailView.swift in Sources */,
 				F047129A2A75D6E900DC0A68 /* InfoView.swift in Sources */,

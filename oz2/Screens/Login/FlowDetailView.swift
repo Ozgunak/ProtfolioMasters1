@@ -180,7 +180,7 @@ struct FlowDetailView: View {
                 print("photos.path \($photos.path)")
             }
         }
-        .navigationTitle("Create New Profile")
+        .navigationTitle(flow.id == nil ? "Create New Profile" : flow.name)
         .navigationBarTitleDisplayMode(.inline)
     }
     

@@ -16,10 +16,6 @@ struct ProjDetailView: View {
     @State var project: ProjModel
     @State var isThisUsersProject: Bool = false
     
-    
-    
-
-    
     var body: some View {
         return VStack {
             
@@ -51,7 +47,7 @@ struct ProjDetailView: View {
             Button {
                 if isTextValid() {
                     Task {
-                        let success = await projectVM.saveProj(item: flow, project: project)
+                        let success = await projectVM.saveProj(flow: flow, project: project)
                         if success {
                             flow.title = ""
                             flow.name = ""

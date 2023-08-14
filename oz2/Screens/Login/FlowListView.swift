@@ -23,7 +23,7 @@ struct FlowListView: View {
                     NavigationLink(destination: {
                         FlowDetailView(flow: item)
                     }, label: {
-                        FlowHeaderView(name: item.name, title: item.title, country: "Ca")
+                        FlowHeaderView(name: item.name, title: item.title, country: "Ca", profileImage: item.profileImage)
                     })
                     
                 }

@@ -45,7 +45,7 @@ struct UsersProfileScreen: View {
                     }
                     VStack(alignment: .leading) {
                         
-                        CarouselDetailView(imageNames: user.projectImageList())
+//                        CarouselDetailView(imageNames: user.projectImageList())
                         
 //                        CarouselView(projects1: $user.projects)
                         InfoView().padding(.horizontal)

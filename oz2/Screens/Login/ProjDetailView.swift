@@ -67,8 +67,6 @@ struct ProjDetailView: View {
             }
         }
         .onAppear {
-            print(project.owner)
-            print(Auth.auth().currentUser?.email)
             if project.owner == Auth.auth().currentUser?.email {
                 isThisUsersProject = true
             }

@@ -30,7 +30,7 @@ struct UserProfileModel: Identifiable, Hashable, Codable {
         if let projects {
             var images: [String] = []
             for project in projects {
-                images.append(project.imageNames?.first ?? "phone")
+                images.append(project.imageNames.first ?? "phone")
             }
             return images
         }

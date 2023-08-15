@@ -36,7 +36,8 @@ struct ContentView: View {
                         }
                         .environmentObject(MyProfileViewModel())
                     
-                    NewProjectView()
+                    NewProjectView(profile: FlowModel(), project: ProjectModel())
+                    // TODO: replace
                         .background(.gray)
                         .tabItem {
                             Image(systemName: "briefcase")

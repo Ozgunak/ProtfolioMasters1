@@ -198,10 +198,10 @@
 			children = (
 				F0CD401D2A7AFB5000420ADE /* Splash */,
 				F0CD401E2A7AFB5700420ADE /* Login */,
+				F00277672A828F3F008A9615 /* NewProjectScreen */,
 				F04712982A75D6D200DC0A68 /* Home */,
 				F002775F2A81E9D7008A9615 /* NewProfile */,
 				F00277662A821856008A9615 /* UsersProfileScreen */,
-				F00277672A828F3F008A9615 /* NewProjectScreen */,
 				F0CD40292A81E29200420ADE /* OtherScreens */,
 			);
 			path = Screens;

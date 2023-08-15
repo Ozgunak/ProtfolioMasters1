@@ -21,7 +21,7 @@ struct FlowHeaderView: View {
                         .resizable()
                         .scaledToFill()
 
-                        .frame(width: 76, height: 76)
+                        .frame(width: 50, height: 50)
                     
                         .clipShape(Circle())
                         .overlay {
@@ -31,12 +31,12 @@ struct FlowHeaderView: View {
                         }
                 } placeholder: {
                     ProgressView()
-                        .frame(width: 76, height: 76)
+                        .frame(width: 50, height: 50)
                 }
             } else {
                 Image(systemName: "person")
                     .resizable()
-                    .frame(width: 76, height: 76)
+                    .frame(width: 50, height: 50)
                     .clipShape(Circle())
                     .scaledToFill()
                     .overlay {
@@ -47,11 +47,11 @@ struct FlowHeaderView: View {
 
             }
             VStack(alignment: .leading) {
-                Text(name).font(.callout).fontWeight(.semibold)
+                Text(name).font(.callout).fontWeight(.semibold).lineLimit(1)
                 HStack() {
                     Text(title).font(.caption)
                     Text(country).font(.caption)
-                }
+                }.lineLimit(1)
             }
         }
     }

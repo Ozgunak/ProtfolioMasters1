@@ -17,7 +17,7 @@ struct CarouselDetailView: View {
                     CarouselImage(imageName: imageNames[index])
                 }
             }
-            .padding(.horizontal, UIScreen.main.bounds.width / 3 - CarouselConstants.spacing * 2)
+            .padding(.horizontal, UIScreen.main.bounds.width / 5 - CarouselConstants.spacing * 2)
         }
     }
 }
@@ -30,23 +30,48 @@ struct CarouselImage: View {
             NavigationLink {
                 ZStack {
                     Color(.black)
-                    Image(imageName).resizable().scaledToFit()
+                    AsyncImage(url: URL(string: imageName)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width / 2)
+                            .shadow(radius: 5)
+                    } placeholder: {
+                        Image("phone")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: UIScreen.main.bounds.width / 2)
+                            .clipped()
+                            .shadow(radius: 5)
+                            .scaleEffect(self.scaleEffect(for: geometry))
+                    }
                 }
             } label: {
                 VStack {
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: UIScreen.main.bounds.width / 3)
-                        .clipped()
-                        .shadow(radius: 5)
-                    .scaleEffect(self.scaleEffect(for: geometry))
+                    AsyncImage(url: URL(string: imageName)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width / 2)
+                            .shadow(radius: 5)
+                            .clipped()
+                            .scaleEffect(self.scaleEffect(for: geometry))
+                    } placeholder: {
+                        Image("tree")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width / 2)
+                            .clipped()
+                            .shadow(radius: 5)
+                            .scaleEffect(self.scaleEffect(for: geometry))
+                    }
+
                     
-                    Text("Name").padding(8).foregroundColor(.white).multilineTextAlignment(.center).background(.thinMaterial).clipShape(Capsule())
+                    Text("Name").padding(8).foregroundColor(.white).lineLimit(1).background(.thinMaterial).clipShape(Capsule()).minimumScaleFactor(0.5)
                 }
             }
         }
-        .frame(width: UIScreen.main.bounds.width / 3, height: CarouselConstants.imageHeight)
+        .frame(width: UIScreen.main.bounds.width / 2, height: CarouselConstants.imageHeight) //
     }
     
     private func scaleEffect(for geometry: GeometryProxy) -> CGFloat {
@@ -75,6 +100,6 @@ enum CarouselConstants {
 
 struct CarouselDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselDetailView(imageNames: ["phone", "phone"])
+        CarouselDetailView(imageNames: ["phone", "tree", "phone"])
     }
 }

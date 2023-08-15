@@ -6,16 +6,20 @@
 //
 
 import Foundation
-
-
+import Firebase
+import FirebaseFirestoreSwift
 
 struct ProjectModel : Hashable, Identifiable, Codable {
-    var id = UUID().uuidString
-    var name: String
-    var description: String
-    var tech: [String]
-    var developmentTime: String?
-    var imageNames: [String]?
-    var detail: String?
-    
+    @DocumentID var id: String?
+    var name: String = ""
+    var description: String = ""
+//    var tech: [String]  = []
+//    var developmentTime: String?
+    var imageNames: [String] = []
+    var detail: String  = ""
+    var owner: String = Auth.auth().currentUser?.email ?? ""
+
+    var dictionary:  [String: Any] {
+        return ["name": name, "description": description, "imageNames": imageNames, "detail": detail, "owner": owner, "postedOn": Timestamp(date: Date.now)]
+    }
 }

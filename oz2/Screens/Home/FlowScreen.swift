@@ -62,7 +62,7 @@ struct FlowItemView: View {
     var body: some View {
         VStack(alignment: .leading) {
 //            FlowHeaderView(name: $profile.name, title: $profile.title, country: $profile.country)
-            FlowImageView(projects: $profile.projects)
+//            FlowImageView(projects: $profile.projects)
             Text("Last Active: 5 mins ago").font(.caption)
         }.padding().background(.thinMaterial).cornerRadius(10)
     }
@@ -70,24 +70,24 @@ struct FlowItemView: View {
 
 
 
-struct FlowImageView: View {
-    @Binding var projects: [ProjectModel]?
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                if projects != nil && !(projects!.isEmpty) {
-                    ForEach(projects!) { item in
-                        Image(item.imageNames?.first ?? "phone").resizable().scaledToFit().cornerRadius(20)
-                    }
-                } else {
-                    ForEach(0 ..< 5) { item in
-                        Image("phone").resizable().scaledToFit().cornerRadius(20)
-                    }
-                    // TODO: Insert Placeholder
-                }
-            }
-        }.frame(height: 400)
-    }
-}
+//struct FlowImageView: View {
+//    @Binding var projects: [ProjectModel]?
+//    var body: some View {
+//        ScrollView(.horizontal, showsIndicators: false) {
+//            HStack {
+//                if projects != nil && !(projects!.isEmpty) {
+//                    ForEach(projects!) { item in
+//                        Image(item.imageNames?.first ?? "phone").resizable().scaledToFit().cornerRadius(20)
+//                    }
+//                } else {
+//                    ForEach(0 ..< 5) { item in
+//                        Image("phone").resizable().scaledToFit().cornerRadius(20)
+//                    }
+//                    // TODO: Insert Placeholder
+//                }
+//            }
+//        }.frame(height: 400)
+//    }
+//}
 
 

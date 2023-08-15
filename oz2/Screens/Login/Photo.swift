@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Photo: Identifiable, Codable {
+struct Photo: Identifiable, Codable, Hashable {
     @DocumentID var id: String?
     var imageURLString: String = ""
     var owner = Auth.auth().currentUser?.email ?? ""

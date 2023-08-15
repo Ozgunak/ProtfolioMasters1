@@ -26,7 +26,7 @@ class FlowDetailViewModel: ObservableObject {
             }
         } else {
             do {
-                let docRef = try await db.collection("flowItem").addDocument(data: item.dictionary)
+                _ = try await db.collection("flowItem").addDocument(data: item.dictionary) // let docRef =
 //                self.flowItem = item
 //                self.flowItem.id = docRef.documentID
                 print("succesfully added")

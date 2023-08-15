@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailAppView: View {
-    let project: ProjectModel = ProjectModel(name: "Sample", description: "Sample project I have been working on for some time.", tech: ["SwiftUI", "Firebase", "Github", "CoreData"], developmentTime: "1 weeks")
+    let project: ProjectModel = ProjectModel(name: "Sample", description: "Sample project I have been working on for some time.")
 
     var body: some View {
         VStack {
@@ -27,16 +27,12 @@ struct DetailAppView: View {
             Text(project.description).font(.caption)
             List {
                 Section("What I learned") {
-                    ForEach(project.tech, id: \.self) { tech in
-                        Text(tech).font(.title3)
-                    }
+                    
                 }
                 .font(.title)
                 
                 Section("Tech I Work With") {
-                    ForEach(project.tech, id: \.self) { tech in
-                        Text(tech).font(.title3)
-                    }
+                    
                 }
                 .font(.title)
                 

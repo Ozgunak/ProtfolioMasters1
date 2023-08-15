@@ -19,7 +19,7 @@ struct FlowDetailView: View {
     @State private var newImage: UIImage?
     @State private var selectedPhoto: PhotosPickerItem?
     
-    @FirestoreQuery(collectionPath: "flowIte") var projects: [ProjModel] // Path changes on appear.
+    @FirestoreQuery(collectionPath: "flowIte") var projectsModel: [ProjectModel] // Path changes on appear.
     @FirestoreQuery(collectionPath: "flowIte") var photos: [Photo] // Path changes on appear.
     
     var previewRunning = false
@@ -27,79 +27,84 @@ struct FlowDetailView: View {
     
     var body: some View {
         
+        //        ScrollView {
         VStack {
-//            if flow.id != nil && !photos.isEmpty {
-//                PhotoView(photos: photos)
-//            }
-            if flow.profileImage != "" {
-                AsyncImage(url: URL(string: flow.profileImage)) { image in
-                    image.resizable()
-                        .scaledToFit()
-                        .clipShape(Circle())
-                        .frame(width: 200, height: 200)
-                } placeholder: {
-                    ProgressView()
-                        .frame(width: 200, height: 200)
-                }
-            } else {
-                PhotosPicker(selection: $selectedPhoto, matching: .images, preferredItemEncoding: .automatic) {
-                    if let newImage {
-                        Image(uiImage: newImage)
-                            .resizable()
+            HStack(alignment: .bottom) {
+                
+                if flow.profileImage != "" {
+                    AsyncImage(url: URL(string: flow.profileImage)) { image in
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: 150, height: 150)
                             .clipShape(Circle())
-                        
-                            .scaledToFit()
-                            .font(.title)
-                            .frame(width: 200, height: 200)
-                        
-                    } else {
-                        Image(systemName: "photo")
-                            .resizable()
-                            .scaledToFit()
-                            .font(.title)
-                            .frame(width: 100, height: 100)
-                        
+                    } placeholder: {
+                        ProgressView()
+                            .frame(width: 150, height: 150)
                     }
-                }
-                .onChange(of: selectedPhoto) { newValue in
-                    Task {
-                        do {
-                            if let data = try await newValue?.loadTransferable(type: Data.self) {
-                                if let uiImage = UIImage(data: data) {
-                                    newImage = uiImage
-                                    print("📷 Succesfully selected Image")
+                } else {
+                    PhotosPicker(selection: $selectedPhoto, matching: .images, preferredItemEncoding: .automatic) {
+                        if let newImage {
+                            Image(uiImage: newImage)
+                                .resizable()
+                                .scaledToFill()
+                                .font(.title)
+                                .frame(width: 150, height: 150)
+                                .clipShape(Circle())
+                        } else {
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                                .font(.title)
+                                .frame(width: 150, height: 150)
+                            
+                        }
+                    }
+                    .onChange(of: selectedPhoto) { newValue in
+                        Task {
+                            do {
+                                if let data = try await newValue?.loadTransferable(type: Data.self) {
+                                    if let uiImage = UIImage(data: data) {
+                                        newImage = uiImage
+                                        print("📷 Succesfully selected Image")
+                                    }
                                 }
+                            } catch {
+                                print("😡 Error: selected image failed \(error.localizedDescription)")
                             }
-                        } catch {
-                            print("😡 Error: selected image failed \(error.localizedDescription)")
                         }
                     }
                 }
-            }
-            
-            
-            
-            Group {
-                TextField("Name", text: $flow.name)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-                    .font(.title2)
-                    .autocorrectionDisabled()
-                    .onChange(of: flow.name, perform: { _ in
-                        isTextValid()
-                    })
                 
-                TextField("Title", text: $flow.title)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-                    .font(.title2)
-                    .padding(.bottom, 50)
-                    .autocorrectionDisabled()
-                    .onChange(of: flow.title, perform: { _ in
-                        isTextValid()
-                    })
+                VStack {
+                    Group {
+                        TextField("Name", text: $flow.name)
+                            .textFieldStyle(.roundedBorder)
+    //                        .padding()
+                            .font(.title2)
+                            .autocorrectionDisabled()
+                            .onChange(of: flow.name, perform: { _ in
+                                isTextValid()
+                            })
+                        
+                        TextField("Title", text: $flow.title)
+                            .textFieldStyle(.roundedBorder)
+    //                        .padding()
+                            .font(.title2)
+                            .padding(.bottom, 50)
+                            .autocorrectionDisabled()
+                            .onChange(of: flow.title, perform: { _ in
+                                isTextValid()
+                            })
+                    }
+                    .disabled(flow.id == nil ? false : true)
+                }
             }
-            .disabled(flow.id == nil ? false : true)
+            .padding(.horizontal)
+            
+            
+            CarouselDetailView(imageNames: [])
+            
+            
             
             //            if flow.id == nil {
             // MARK: Save Button
@@ -132,33 +137,32 @@ struct FlowDetailView: View {
             .tint(.black)
             //            }
             
+            // MARK: Projects
             HStack {
                 Text("Projects").font(.title2)
                 Spacer()
                 NavigationLink {
-                    ProjDetailView(flow: flow, project: ProjModel())
-                    
+                    //                    ProjDetailView(flow: flow, project: ProjModel())
+                    NewProjectView(profile: flow, project: ProjectModel())
                 } label: {
                     Text("Add Projects")
                     
                 }
                 
-                //                Button {
-                //                } label: {
-                //                }
                 
             }
             .padding(.horizontal)
             
             List {
-                ForEach(projects) { project in
+                ForEach(projectsModel) { project in
                     NavigationLink {
-                        ProjDetailView(flow: flow, project: project)
+                        NewProjectView(profile: flow, project: project)
                     } label: {
                         VStack(alignment: .leading) {
                             Text(String(project.name))
                                 .font(.title2)
-                            Text(String(project.title))
+                            Text(String(project.description))
+                            CarouselDetailView(imageNames: project.imageNames)
                         }
                     }
                 }
@@ -172,16 +176,17 @@ struct FlowDetailView: View {
         }
         // MARK: On Appear
         .onAppear {
-            if  flow.id != nil { //!previewRunning &&
-                $projects.path = "flowItem/\(flow.id ?? "")/projects"
-                print("projects.path \($projects.path)")
+            if let profileID = flow.id { //!previewRunning && flow.id != ""?
+                $projectsModel.path = "flowItem/\(profileID)/projects"
+                print("projects.path \($projectsModel.path)")
                 
-                $photos.path = "flowItem/\(flow.id ?? "")/photos"
+                $photos.path = "flowItem/\(profileID)/photos"
                 print("photos.path \($photos.path)")
             }
         }
         .navigationTitle(flow.id == nil ? "Create New Profile" : flow.name)
         .navigationBarTitleDisplayMode(.inline)
+        //        }
     }
     
     

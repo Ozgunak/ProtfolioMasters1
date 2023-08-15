@@ -54,6 +54,7 @@ struct LoginView: View {
                 //                .frame(height: 45)
                 //                .cornerRadius(10)
                 
+                // MARK: Text Fields
                 Group {
                     TextField("E-Mail", text: $email)
                         .keyboardType(.emailAddress)
@@ -95,7 +96,7 @@ struct LoginView: View {
                 .background(.white)
                 .cornerRadius(4)
                 
-                
+                // MARK: Buttons
                 HStack {
                     Button("Sign-Up") {
                         signUp()
@@ -118,6 +119,7 @@ struct LoginView: View {
             .alert(alertMessage, isPresented: $isAlertShowing) {
                 Button("OK", role: .cancel) {}
             }
+            // MARK: Full Screen Cover Sheet
             .fullScreenCover(isPresented: $showContext) {
 //                NavigationStack {
                     FlowListView()
@@ -125,6 +127,7 @@ struct LoginView: View {
             }
             
         }
+        // MARK: On Appear
         .onAppear {
             if Auth.auth().currentUser != nil {
                 showContext = true

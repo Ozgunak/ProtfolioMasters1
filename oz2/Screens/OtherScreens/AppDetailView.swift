@@ -20,7 +20,7 @@ struct AppDetailView: View {
         self.project = project
         _nameText = State(initialValue: project.name)
         _descriptionText = State(initialValue: project.description)
-        _detailText =  State(initialValue: project.detail ?? "hi")
+        _detailText =  State(initialValue: project.detail )
     }
     
     var body: some View {
@@ -30,8 +30,8 @@ struct AppDetailView: View {
             
             ScrollView(showsIndicators: false) {
                 VStack {
-                    CarouselDetailView(imageNames: project.imageNames ?? ["phone"])
-                        .frame(height: CarouselConstants.viewHeight)
+//                    CarouselDetailView(imageNames: project.imageNames ?? ["phone"])
+//                        .frame(height: CarouselConstants.viewHeight)
                     
                     VStack {
                         Text(project.name).font(.title).foregroundColor(.white)
@@ -45,12 +45,12 @@ struct AppDetailView: View {
                     VStack {
                         Text(project.detail ?? "My Project").padding().foregroundColor(.white)
                         
-                        ForEach(project.tech, id: \.self) { tech in
-                            HStack {
-                                Image(systemName: "star").foregroundColor(.white)
-                                Text(tech).foregroundColor(.white)
-                            }.padding(.bottom, 2)
-                        }
+//                        ForEach(project.tech, id: \.self) { tech in
+//                            HStack {
+//                                Image(systemName: "star").foregroundColor(.white)
+//                                Text(tech).foregroundColor(.white)
+//                            }.padding(.bottom, 2)
+//                        }
                     }
                     .padding()
                     .background(.ultraThinMaterial)
@@ -67,8 +67,8 @@ struct AppDetailView: View {
 
 }
 
-struct AppDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppDetailView(project: ProjectModel(name: "New Project", description: "Brand New Project That I Created", tech: ["tech 1", "tech 2", "tech 3", "tech 4", ], detail: "What I learned in this project"))
-    }
-}
+//struct AppDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AppDetailView(project: ProjectModel(name: "New Project", description: "Brand New Project That I Created", tech: ["tech 1", "tech 2", "tech 3", "tech 4", ], detail: "What I learned in this project"))
+//    }
+//}

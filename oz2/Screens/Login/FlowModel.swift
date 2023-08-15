@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseFirestoreSwift
 struct FlowModel: Identifiable, Codable {
     @DocumentID var id: String?
     var name: String = ""
     var title: String = ""
+    var owner: String = Auth.auth().currentUser?.email ?? ""
     var profileImage: String = ""
     var dictionary:  [String: Any] {
-        return ["name": name, "title": title, "profileImage": profileImage]
+        return ["name": name, "title": title, "profileImage": profileImage, "owner": owner]
     }
 }

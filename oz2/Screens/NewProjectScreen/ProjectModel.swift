@@ -23,3 +23,6 @@ struct ProjectModel : Hashable, Identifiable, Codable {
         return ["name": name, "description": description, "imageNames": imageNames, "detail": detail, "owner": owner, "postedOn": Timestamp(date: Date.now)]
     }
 }
+
+
+

@@ -9,12 +9,12 @@ import SwiftUI
 
 struct CarouselDetailView: View {
     let imageNames: [String]
-
+    var imageHeight: CGFloat = 360
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: CarouselConstants.spacing) {
                 ForEach(imageNames.indices, id: \.self) { index in
-                    CarouselImage(imageName: imageNames[index])
+                    CarouselImage(imageName: imageNames[index], imageHeight: imageHeight)
                 }
             }
             .padding(.horizontal, UIScreen.main.bounds.width / 5 - CarouselConstants.spacing * 2)
@@ -24,7 +24,7 @@ struct CarouselDetailView: View {
 
 struct CarouselImage: View {
     let imageName: String
-    
+    var imageHeight: CGFloat
     var body: some View {
         GeometryReader { geometry in
             NavigationLink {
@@ -57,21 +57,23 @@ struct CarouselImage: View {
                             .clipped()
                             .scaleEffect(self.scaleEffect(for: geometry))
                     } placeholder: {
-                        Image("tree")
-                            .resizable()
-                            .scaledToFill()
+                        ProgressView()
                             .frame(width: UIScreen.main.bounds.width / 2)
-                            .clipped()
-                            .shadow(radius: 5)
-                            .scaleEffect(self.scaleEffect(for: geometry))
+//                        Image("tree")
+//                            .resizable()
+//                            .scaledToFill()
+//                            .frame(width: UIScreen.main.bounds.width / 2)
+//                            .clipped()
+//                            .shadow(radius: 5)
+//                            .scaleEffect(self.scaleEffect(for: geometry))
                     }
 
                     
-                    Text("Name").padding(8).foregroundColor(.white).lineLimit(1).background(.thinMaterial).clipShape(Capsule()).minimumScaleFactor(0.5)
+//                    Text("Name").padding(8).foregroundColor(.black).lineLimit(1).background(.thinMaterial).clipShape(Capsule()).minimumScaleFactor(0.5).offset(y: CGFloat(-30))
                 }
             }
         }
-        .frame(width: UIScreen.main.bounds.width / 2, height: CarouselConstants.imageHeight) //
+        .frame(width: UIScreen.main.bounds.width / 2, height: imageHeight) //
     }
     
     private func scaleEffect(for geometry: GeometryProxy) -> CGFloat {
@@ -93,7 +95,7 @@ enum CarouselConstants {
     static let spacing: CGFloat = 8
     static let sideImageScale: CGFloat = 0.7
     static let centerImageScale: CGFloat = 1.1
-    static let viewHeight: CGFloat = 400
+//    static let viewHeight: CGFloat = 400
     static let imageHeight: CGFloat = 360
     
 }

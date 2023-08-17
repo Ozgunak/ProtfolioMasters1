@@ -91,10 +91,23 @@ class NewProjectViewModel: ObservableObject {
             
             let projString = "flowItem/\(profileID)/projects"
             
+            var newProj = FlowItemModel(id: refID,
+                                        name: profile.name,
+                                        title: profile.title,
+                                        projectName: project.name,
+                                        description: project.description,
+                                        detail: project.detail,
+                                        profileID: profileID,
+                                        progileImage: profile.profileImage,
+                                        imageNames: imageList,
+                                        owner: profile.owner)
+            
             do {
                 
                 try await db.collection(projString).document(refID).setData(["imageNames": imageList], merge: true)
-                print("😎 Data updated successfully!")
+                print("😎 Data images updated successfully!")
+                try await db.collection("projects").addDocument(data: newProj.dictionary)
+                print("😎 Project added to projects successfully!")
                 return true
             } catch {
                 print("😡 ERROR: Could not update data in 'imageNames' for profileID \(profileID)")

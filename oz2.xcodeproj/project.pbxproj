@@ -27,6 +27,10 @@
 		F00277872A85CA37008A9615 /* ProjDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277862A85CA37008A9615 /* ProjDetailView.swift */; };
 		F00277892A85CA42008A9615 /* ProjDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */; };
 		F01878432A89BD760088779D /* FlowHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01878422A89BD760088779D /* FlowHeaderView.swift */; };
+		F0280E422A8BD7D1003903E3 /* FlowItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E412A8BD7D1003903E3 /* FlowItemModel.swift */; };
+		F0280E442A8BD814003903E3 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E432A8BD814003903E3 /* ProjectDetailView.swift */; };
+		F0280E462A8E84B0003903E3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */; };
+		F0280E492A8E9429003903E3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E482A8E9429003903E3 /* SettingsView.swift */; };
 		F04712852A708F9900DC0A68 /* oz2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712842A708F9900DC0A68 /* oz2App.swift */; };
 		F04712872A708F9900DC0A68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712862A708F9900DC0A68 /* ContentView.swift */; };
 		F04712892A708F9A00DC0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04712882A708F9A00DC0A68 /* Assets.xcassets */; };
@@ -69,6 +73,10 @@
 		F00277862A85CA37008A9615 /* ProjDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjDetailView.swift; sourceTree = "<group>"; };
 		F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjDetailViewModel.swift; sourceTree = "<group>"; };
 		F01878422A89BD760088779D /* FlowHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHeaderView.swift; sourceTree = "<group>"; };
+		F0280E412A8BD7D1003903E3 /* FlowItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowItemModel.swift; sourceTree = "<group>"; };
+		F0280E432A8BD814003903E3 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
+		F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		F0280E482A8E9429003903E3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F04712812A708F9900DC0A68 /* oz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04712842A708F9900DC0A68 /* oz2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oz2App.swift; sourceTree = "<group>"; };
 		F04712862A708F9900DC0A68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +159,31 @@
 			path = HelperViews;
 			sourceTree = "<group>";
 		};
+		F0280E402A8BD5C6003903E3 /* ProjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F0280E412A8BD7D1003903E3 /* FlowItemModel.swift */,
+				F0280E432A8BD814003903E3 /* ProjectDetailView.swift */,
+			);
+			path = ProjectDetail;
+			sourceTree = "<group>";
+		};
+		F0280E472A8E9417003903E3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F0280E482A8E9429003903E3 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F0280E4A2A8E9F4F003903E3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		F04712782A708F9900DC0A68 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +207,7 @@
 				F002776F2A841138008A9615 /* GoogleService-Info.plist */,
 				F04712842A708F9900DC0A68 /* oz2App.swift */,
 				F04712862A708F9900DC0A68 /* ContentView.swift */,
+				F0280E4A2A8E9F4F003903E3 /* Managers */,
 				F002776A2A8290A5008A9615 /* HelperViews */,
 				F04712972A75D6C400DC0A68 /* Screens */,
 				F0CD401C2A7AFB3C00420ADE /* Models */,
@@ -196,8 +230,10 @@
 		F04712972A75D6C400DC0A68 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F0280E472A8E9417003903E3 /* Settings */,
 				F0CD401D2A7AFB5000420ADE /* Splash */,
 				F0CD401E2A7AFB5700420ADE /* Login */,
+				F0280E402A8BD5C6003903E3 /* ProjectDetail */,
 				F00277672A828F3F008A9615 /* NewProjectScreen */,
 				F04712982A75D6D200DC0A68 /* Home */,
 				F002775F2A81E9D7008A9615 /* NewProfile */,
@@ -238,12 +274,12 @@
 			children = (
 				F0CD40192A7AECC600420ADE /* LoginView.swift */,
 				F002777A2A841AFB008A9615 /* LoginViewModel.swift */,
-				F00277842A84839F008A9615 /* FlowListViewModel.swift */,
 				F002777C2A84451A008A9615 /* FlowListView.swift */,
-				F00277822A844AA3008A9615 /* FlowDetailViewModel.swift */,
+				F00277842A84839F008A9615 /* FlowListViewModel.swift */,
 				F00277802A8448C9008A9615 /* FlowDetailView.swift */,
-				F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */,
+				F00277822A844AA3008A9615 /* FlowDetailViewModel.swift */,
 				F00277862A85CA37008A9615 /* ProjDetailView.swift */,
+				F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */,
 				F0E833E32A882F7900C03A06 /* Photo.swift */,
 				F002777E2A844777008A9615 /* FlowModel.swift */,
 			);
@@ -347,6 +383,7 @@
 				F04712A12A75D77F00DC0A68 /* SkillsView.swift in Sources */,
 				F002776E2A8291C4008A9615 /* CarouselDetailView.swift in Sources */,
 				F00277692A828F70008A9615 /* NewProjectViewModel.swift in Sources */,
+				F0280E422A8BD7D1003903E3 /* FlowItemModel.swift in Sources */,
 				F047129F2A75D76B00DC0A68 /* ExpreienceView.swift in Sources */,
 				F00277892A85CA42008A9615 /* ProjDetailViewModel.swift in Sources */,
 				F0CD40162A7AC82100420ADE /* SplashScreen.swift in Sources */,
@@ -365,8 +402,10 @@
 				F002776C2A8290B9008A9615 /* CarouselView.swift in Sources */,
 				F04712872A708F9900DC0A68 /* ContentView.swift in Sources */,
 				F00277832A844AA3008A9615 /* FlowDetailViewModel.swift in Sources */,
+				F0280E462A8E84B0003903E3 /* AuthenticationManager.swift in Sources */,
 				F00277852A84839F008A9615 /* FlowListViewModel.swift in Sources */,
 				F047129D2A75D74900DC0A68 /* SocialLinkViews.swift in Sources */,
+				F0280E492A8E9429003903E3 /* SettingsView.swift in Sources */,
 				F04712A72A79FDFA00DC0A68 /* FlowScreen.swift in Sources */,
 				F0CD40242A7B337E00420ADE /* ProjectModel.swift in Sources */,
 				F00277632A82002F008A9615 /* AppHeaderView.swift in Sources */,
@@ -376,6 +415,7 @@
 				F04712A52A75F9D500DC0A68 /* AppDetailView.swift in Sources */,
 				F047129A2A75D6E900DC0A68 /* InfoView.swift in Sources */,
 				F0CD40142A7ABCA000420ADE /* NewProfileView.swift in Sources */,
+				F0280E442A8BD814003903E3 /* ProjectDetailView.swift in Sources */,
 				F00277612A81E9FA008A9615 /* MyProfileViewModel.swift in Sources */,
 				F04712A92A7A0CF900DC0A68 /* ExploreView.swift in Sources */,
 				F04712852A708F9900DC0A68 /* oz2App.swift in Sources */,

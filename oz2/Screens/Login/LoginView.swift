@@ -17,9 +17,11 @@ struct LoginView: View {
     @State private var alertMessage: String = ""
     @State private var showContext: Bool = false
     @State private var buttonsDisabled: Bool = true
-    
     @FocusState private var focusField: Field?
     
+    @StateObject private var viewModel = LoginViewModel()
+    @Binding var showLoginView: Bool
+
     var body: some View {
         ZStack {
             Color(.darkGray).ignoresSafeArea()
@@ -34,29 +36,10 @@ struct LoginView: View {
                     .font(.headline)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
-                
-                //            SignInWithAppleButton(.signIn, onRequest: { request in
-                //                request.requestedScopes = [.fullName, .email]
-                //            }, onCompletion: { result in
-                //                switch result {
-                //                case .success(let authResults):
-                //                    // Handle success
-                //                    print(authResults)
-                //                case .failure(let error):
-                //                    // Handle error
-                //                    print(error.localizedDescription)
-                //                }
-                //            })
-                //            .frame(height: 45)
-                //            .cornerRadius(10)
-                
-                //            GoogleSignInButton()
-                //                .frame(height: 45)
-                //                .cornerRadius(10)
-                
+     
                 // MARK: Text Fields
                 Group {
-                    TextField("E-Mail", text: $email)
+                    TextField("E-Mail", text: $viewModel.email)
                         .keyboardType(.emailAddress)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
@@ -67,15 +50,15 @@ struct LoginView: View {
                         .onSubmit {
                             focusField = .password
                         }
-                        .onChange(of: email) { _ in
-                            isValidInput()
+                        .onChange(of: viewModel.email) { _ in
+                            let _ = viewModel.isValidInput()
                         }
                         .onAppear {
-                            isValidInput()
+                            let _ = viewModel.isValidInput()
                         }
                     
                     
-                    SecureField("Password", text: $password)
+                    SecureField("Password", text: $viewModel.password)
                         .padding(.horizontal)
                         .padding(.vertical, 4)
                         .submitLabel(.done)
@@ -83,8 +66,8 @@ struct LoginView: View {
                         .onSubmit {
                             focusField = .none
                         }
-                        .onChange(of: password) { _ in
-                            isValidInput()
+                        .onChange(of: viewModel.password) { _ in
+                            let _ = viewModel.isValidInput()
                         }
 
                 }
@@ -97,58 +80,50 @@ struct LoginView: View {
                 .cornerRadius(4)
                 
                 // MARK: Buttons
-                HStack {
-                    Button("Sign-Up") {
-                        signUp()
+                
+                
+                Button {
+                    Task{
+                        do {
+                            try await viewModel.signUp()
+                            showLoginView = false
+                            return
+                        } catch {
+                            print("Error 1: sign in \(error.localizedDescription)")
+                            alertMessage = "Error: sign in \(error.localizedDescription)"
+                        }
+                        
+                        do {
+                            try await viewModel.signIn()
+                            showLoginView = false
+                            return
+                        } catch {
+                            print("Error 2: sign in \(error.localizedDescription)")
+                            alertMessage = "Error: sign in \(error.localizedDescription)"
+                        }
+                        isAlertShowing = true
+
                     }
-                    .background(.thickMaterial)
-                    .cornerRadius(10)
-                    
-                    Button("Log In") {
-                        logIn()
-                    }
-                    .background(.thickMaterial)
-                    .cornerRadius(10)
+                } label: {
+                    Text("Sign In With Email")
+                        .disabled(viewModel.isValidInput())
+                        .foregroundColor(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(.blue)
+                        .cornerRadius(10)
+                        
                 }
-                .buttonStyle(.borderedProminent)
-                .disabled(buttonsDisabled)
-                .foregroundColor(.black)
-                .tint(.white)
+                
             }
             .padding()
             .alert(alertMessage, isPresented: $isAlertShowing) {
                 Button("OK", role: .cancel) {}
             }
-            // MARK: Full Screen Cover Sheet
-            .fullScreenCover(isPresented: $showContext) {
-//                NavigationStack {
-                    FlowListView()
-//                }
-            }
-            
         }
         // MARK: On Appear
         .onAppear {
             if Auth.auth().currentUser != nil {
-                showContext = true
-            }
-        }
-    }
-    
-    func isValidInput() {
-        let emailText = (email.count > 5 && email.contains("@"))
-        let passText = (password.count > 5)
-        buttonsDisabled = !(emailText && passText)
-    }
-    
-    func signUp() {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let error {
-                print("😡 Error Sign-Up: \(error.localizedDescription)")
-                alertMessage = "Error Sign-Up: \(error.localizedDescription)"
-                isAlertShowing.toggle()
-            } else {
-                print("Successfully Signed Up")
                 showContext = true
             }
         }
@@ -172,6 +147,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(showLoginView: .constant(true))
     }
 }

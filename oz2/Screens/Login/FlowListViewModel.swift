@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
+@MainActor
 class FlowListViewModel: ObservableObject {
     @Published var flowItems: [FlowModel] = []
     
@@ -29,5 +30,8 @@ class FlowListViewModel: ObservableObject {
 //        }
 //    }
     
+    func signout() throws {
+        try AuthenticationManager.shared.signout()
+    }
 
 }

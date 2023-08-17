@@ -26,7 +26,7 @@ struct oz2App: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            SplashScreen()
                 .environmentObject(flowVM)
                 .environmentObject(profileVM)
 //                .environmentObject(flowItemVM)

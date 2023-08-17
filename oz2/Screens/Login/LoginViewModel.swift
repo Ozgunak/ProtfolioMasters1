@@ -13,11 +13,17 @@ class LoginViewModel: ObservableObject {
     @Published var password: String = ""
     
     func signUp() async throws {
-        try await AuthenticationManager.shared.createUser(email: email, password: password)
+        let authResult = try await AuthenticationManager.shared.createUser(email: email, password: password)
+        try await FirestoreManager.shared.createUser(auth: authResult)
     }
     
     func signIn() async throws {
         try await AuthenticationManager.shared.signIn(email: email, password: password)
+    }
+    
+    func signInAnonymous() async throws {
+        let authResult = try await AuthenticationManager.shared.createAnonymousUser()
+        try await FirestoreManager.shared.createUser(auth: authResult)
     }
     
     func isValidInput() -> Bool {

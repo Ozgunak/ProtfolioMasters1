@@ -12,11 +12,13 @@ struct AuthDataResultModel {
     let uid: String
     let email: String?
     let photoURL: String?
+    let isAnonymous: Bool
     
     init(user: User) {
         self.uid = user.uid
         self.email = user.email
         self.photoURL = user.photoURL?.absoluteString
+        self.isAnonymous = user.isAnonymous
     }
 }
 
@@ -41,6 +43,11 @@ final class AuthenticationManager {
     @discardableResult
     func signIn(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    func createAnonymousUser() async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signInAnonymously()
         return AuthDataResultModel(user: authDataResult.user)
     }
     

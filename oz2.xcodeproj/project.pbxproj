@@ -31,6 +31,7 @@
 		F0280E442A8BD814003903E3 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E432A8BD814003903E3 /* ProjectDetailView.swift */; };
 		F0280E462A8E84B0003903E3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */; };
 		F0280E492A8E9429003903E3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E482A8E9429003903E3 /* SettingsView.swift */; };
+		F0280E4C2A8ED612003903E3 /* FIrestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E4B2A8ED612003903E3 /* FIrestoreManager.swift */; };
 		F04712852A708F9900DC0A68 /* oz2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712842A708F9900DC0A68 /* oz2App.swift */; };
 		F04712872A708F9900DC0A68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712862A708F9900DC0A68 /* ContentView.swift */; };
 		F04712892A708F9A00DC0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04712882A708F9A00DC0A68 /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		F0280E432A8BD814003903E3 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
 		F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		F0280E482A8E9429003903E3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F0280E4B2A8ED612003903E3 /* FIrestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrestoreManager.swift; sourceTree = "<group>"; };
 		F04712812A708F9900DC0A68 /* oz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04712842A708F9900DC0A68 /* oz2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oz2App.swift; sourceTree = "<group>"; };
 		F04712862A708F9900DC0A68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */,
+				F0280E4B2A8ED612003903E3 /* FIrestoreManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -230,13 +233,13 @@
 		F04712972A75D6C400DC0A68 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F0280E472A8E9417003903E3 /* Settings */,
 				F0CD401D2A7AFB5000420ADE /* Splash */,
 				F0CD401E2A7AFB5700420ADE /* Login */,
 				F0280E402A8BD5C6003903E3 /* ProjectDetail */,
 				F00277672A828F3F008A9615 /* NewProjectScreen */,
 				F04712982A75D6D200DC0A68 /* Home */,
 				F002775F2A81E9D7008A9615 /* NewProfile */,
+				F0280E472A8E9417003903E3 /* Settings */,
 				F00277662A821856008A9615 /* UsersProfileScreen */,
 				F0CD40292A81E29200420ADE /* OtherScreens */,
 			);
@@ -396,6 +399,7 @@
 				F002777D2A84451A008A9615 /* FlowListView.swift in Sources */,
 				F002777B2A841AFB008A9615 /* LoginViewModel.swift in Sources */,
 				F0E833E42A882F7900C03A06 /* Photo.swift in Sources */,
+				F0280E4C2A8ED612003903E3 /* FIrestoreManager.swift in Sources */,
 				F0CD40262A81E1C000420ADE /* FlowViewModel.swift in Sources */,
 				F04712942A7441FB00DC0A68 /* DetailAppView.swift in Sources */,
 				F0CD401A2A7AECC600420ADE /* LoginView.swift in Sources */,

@@ -15,7 +15,9 @@ struct SplashScreen: View {
     
     var body: some View {
         ZStack {
-            FlowListView(showLoginView: $showSigninView)
+            if !showSigninView {
+                FlowListView(showLoginView: $showSigninView)
+            }
         }
         .onAppear {
             let user = try? AuthenticationManager.shared.getAuthUser()

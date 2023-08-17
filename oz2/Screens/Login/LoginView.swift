@@ -102,7 +102,6 @@ struct LoginView: View {
                             alertMessage = "Error: sign in \(error.localizedDescription)"
                         }
                         isAlertShowing = true
-
                     }
                 } label: {
                     Text("Sign In With Email")
@@ -112,9 +111,29 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity)
                         .background(.blue)
                         .cornerRadius(10)
-                        
                 }
                 
+                
+                Button {
+                    Task {
+                        do {
+                            try await viewModel.signInAnonymous()
+                            showLoginView = false
+                        } catch {
+                            print("Error: sign in anonymous \(error.localizedDescription)")
+                        }
+                    }
+                } label: {
+                    Text("Join as a visitor")
+                        .font(.caption)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(.blue)
+                        .cornerRadius(10)
+                }
+
+                
+                    
             }
             .padding()
             .alert(alertMessage, isPresented: $isAlertShowing) {

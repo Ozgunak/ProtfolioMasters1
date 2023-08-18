@@ -16,6 +16,10 @@ struct FlowListView: View {
     @State private var isNewListPresented: Bool = false
     @Binding var showLoginView: Bool
     @StateObject private var viewModel = FlowListViewModel()
+    @State private var titleText: String = "Welcome"
+    
+    
+    
 
     
     var body: some View {
@@ -44,7 +48,17 @@ struct FlowListView: View {
 
             }
             .listStyle(.plain)
-            .navigationTitle("Favorites")
+            .navigationTitle(titleText)
+            .task {
+                do {
+                    try await viewModel.loadCurrentUser()
+                    if let id = viewModel.user?.userId {
+                        titleText = "Welcome \(id)"
+                    }
+                } catch {
+                    print("Error: cant load current user \(error.localizedDescription)")
+                }
+            }
             // MARK: Toolbar
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

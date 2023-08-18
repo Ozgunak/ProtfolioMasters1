@@ -9,24 +9,34 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+struct DBUser: Codable  {
+    var userId: String
+    var isAnonymous: Bool?
+    var dateCreated: Date?
+    var email: String?
+    var photoURL: String?
+    
+    init(auth: AuthDataResultModel) {
+        self.userId = auth.uid
+        self.email = auth.email
+        self.isAnonymous = auth.isAnonymous
+        self.dateCreated = Date()
+        self.photoURL = auth.photoURL
+    }
+}
+
 final class FirestoreManager {
     
     static let shared = FirestoreManager()
     private init() {}
     
-    func createUser(auth: AuthDataResultModel) async throws {
-        var userData: [String: Any] = [
-            "user_id": auth.uid,
-            "is_anonymous": auth.isAnonymous,
-            "date_created": Timestamp(),
-        ]
-        if let email = auth.email {
-            userData["email"] = email
-        }
-        if let photoURL = auth.photoURL {
-            userData["photoURL"] = photoURL
-        }
-        
-        try await Firestore.firestore().collection("users").document(auth.uid).setData(userData)
+    private let userCollection = Firestore.firestore().collection("users")
+    
+    func createUser(user: DBUser) async throws {
+        try userCollection.document(user.userId).setData(from: user)
+    }
+    
+    func getUser(userID: String) async throws -> DBUser {
+        return try await userCollection.document(userID).getDocument(as: DBUser.self)
     }
 }

@@ -12,23 +12,13 @@ import FirebaseFirestore
 @MainActor
 class FlowListViewModel: ObservableObject {
     @Published var flowItems: [FlowModel] = []
+    @Published var user: DBUser?
     
-//    func loadFlowItems() async -> [FlowModel] {
-//        let db = Firestore.firestore()
-//        print("load starts")
-//
-//        do {
-//            var flowList: [FlowModel] = []
-//            let snapshots = try? await db.collection("flowItem").getDocuments()
-////            if let snapshots as FlowModel {
-////                ForEach(snapshots) { snapshot in
-////                    flowList.append(snapshot)
-////                }
-////            }
-//        } catch {
-//            print("Error: could not load data \(error.localizedDescription)")
-//        }
-//    }
+    func loadCurrentUser() async throws {
+        let authResult = try AuthenticationManager.shared.getAuthUser()
+        self.user = try await FirestoreManager.shared.getUser(userID: authResult.uid)
+    }
+    
     
     func signout() throws {
         try AuthenticationManager.shared.signout()

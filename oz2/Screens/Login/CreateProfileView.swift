@@ -1,5 +1,5 @@
 //
-//  FlowDetailView.swift
+//  CreateProfileView.swift
 //  oz2
 //
 //  Created by özgün aksoy on 2023-08-09.
@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 import FirebaseFirestoreSwift
 
-struct FlowDetailView: View {
+struct CreateProfileView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var flowItemVM = FlowDetailViewModel()
     @State private var isAlertPresented: Bool = false
@@ -143,7 +143,7 @@ struct FlowDetailView: View {
                 Spacer()
                 NavigationLink {
                     //                    ProjDetailView(flow: flow, project: ProjModel())
-                    NewProjectView(profile: flow, project: ProjectModel())
+                    NewProjectView(project: ProjectModel())
                 } label: {
                     Text("Add Projects")
                     
@@ -156,7 +156,7 @@ struct FlowDetailView: View {
             List {
                 ForEach(projectsModel) { project in
                     NavigationLink {
-                        NewProjectView(profile: flow, project: project)
+                        NewProjectView(project: project)
                     } label: {
                         VStack(alignment: .leading) {
                             Text(String(project.name))
@@ -201,10 +201,10 @@ struct FlowDetailView: View {
     }
 }
 
-struct FlowDetailView_Previews: PreviewProvider {
+struct CreateProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            FlowDetailView(flow: FlowModel(), previewRunning: true)
+            CreateProfileView(flow: FlowModel(), previewRunning: true)
         }
     }
 }

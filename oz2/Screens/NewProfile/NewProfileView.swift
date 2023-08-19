@@ -11,10 +11,16 @@ struct NewProfileView: View {
     @State private var profileImage: Image? = Image(systemName: "person.circle")
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
+    private var titleText: String {
+        return profileVM.myProfile.name != "" ? "Edit Profile" : "Create New Profile"
+    }
     
+    
+    
+
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var profileVM: MyProfileViewModel
+    @StateObject var profileVM = MyProfileViewModel()
     
 //    @State var profile: UserProfileModel = UserProfileModel(name: "", title: "")
     
@@ -63,7 +69,7 @@ struct NewProfileView: View {
                     TextField("Personal Website", text: $profileVM.myProfile.personalWebsiteURL)
                 }
             }
-            .navigationBarTitle("Create Profile", displayMode: .inline)
+            .navigationBarTitle(titleText, displayMode: .inline)
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel", action: {
@@ -86,6 +92,7 @@ struct NewProfileView: View {
     
     func saveProfile() {
         // Implement the logic to save the profile
+        // TODO: create dbuser 
         profileVM.createNewProfile(newProfile: UserProfileModel(id: UUID().uuidString,
                                                                 name: profileVM.myProfile.name,
                                                                 title: profileVM.myProfile.title,
@@ -143,7 +150,6 @@ struct NewProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             NewProfileView()
-                .environmentObject(MyProfileViewModel())
         }
     }
 }

@@ -13,12 +13,14 @@ struct AuthDataResultModel {
     let email: String?
     let photoURL: String?
     let isAnonymous: Bool
+    let displayName: String?
     
     init(user: User) {
         self.uid = user.uid
         self.email = user.email
         self.photoURL = user.photoURL?.absoluteString
         self.isAnonymous = user.isAnonymous
+        self.displayName = user.displayName
     }
 }
 
@@ -51,6 +53,15 @@ final class AuthenticationManager {
         return AuthDataResultModel(user: authDataResult.user)
     }
     
+    // MARK: Update User
+    func updateUser() async throws {
+        // TODO: update user
+//        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+//        changeRequest?.displayName = displayName
+//        changeRequest?.commitChanges { error in
+//            // ...
+//        }
+    }
     func signout() throws {
         try Auth.auth().signOut()
     }

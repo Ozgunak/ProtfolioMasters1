@@ -21,7 +21,7 @@
 		F002777B2A841AFB008A9615 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002777A2A841AFB008A9615 /* LoginViewModel.swift */; };
 		F002777D2A84451A008A9615 /* FlowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002777C2A84451A008A9615 /* FlowListView.swift */; };
 		F002777F2A844777008A9615 /* FlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002777E2A844777008A9615 /* FlowModel.swift */; };
-		F00277812A8448C9008A9615 /* FlowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277802A8448C9008A9615 /* FlowDetailView.swift */; };
+		F00277812A8448C9008A9615 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277802A8448C9008A9615 /* CreateProfileView.swift */; };
 		F00277832A844AA3008A9615 /* FlowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277822A844AA3008A9615 /* FlowDetailViewModel.swift */; };
 		F00277852A84839F008A9615 /* FlowListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277842A84839F008A9615 /* FlowListViewModel.swift */; };
 		F00277872A85CA37008A9615 /* ProjDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00277862A85CA37008A9615 /* ProjDetailView.swift */; };
@@ -68,7 +68,7 @@
 		F002777A2A841AFB008A9615 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F002777C2A84451A008A9615 /* FlowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowListView.swift; sourceTree = "<group>"; };
 		F002777E2A844777008A9615 /* FlowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowModel.swift; sourceTree = "<group>"; };
-		F00277802A8448C9008A9615 /* FlowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowDetailView.swift; sourceTree = "<group>"; };
+		F00277802A8448C9008A9615 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		F00277822A844AA3008A9615 /* FlowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowDetailViewModel.swift; sourceTree = "<group>"; };
 		F00277842A84839F008A9615 /* FlowListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowListViewModel.swift; sourceTree = "<group>"; };
 		F00277862A85CA37008A9615 /* ProjDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjDetailView.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 				F002777A2A841AFB008A9615 /* LoginViewModel.swift */,
 				F002777C2A84451A008A9615 /* FlowListView.swift */,
 				F00277842A84839F008A9615 /* FlowListViewModel.swift */,
-				F00277802A8448C9008A9615 /* FlowDetailView.swift */,
+				F00277802A8448C9008A9615 /* CreateProfileView.swift */,
 				F00277822A844AA3008A9615 /* FlowDetailViewModel.swift */,
 				F00277862A85CA37008A9615 /* ProjDetailView.swift */,
 				F00277882A85CA42008A9615 /* ProjDetailViewModel.swift */,
@@ -394,7 +394,7 @@
 				F002777F2A844777008A9615 /* FlowModel.swift in Sources */,
 				F0CD40222A7B1D9B00420ADE /* NewProjectView.swift in Sources */,
 				F04712A32A75D7E300DC0A68 /* ScrollableAppView.swift in Sources */,
-				F00277812A8448C9008A9615 /* FlowDetailView.swift in Sources */,
+				F00277812A8448C9008A9615 /* CreateProfileView.swift in Sources */,
 				F00277872A85CA37008A9615 /* ProjDetailView.swift in Sources */,
 				F002777D2A84451A008A9615 /* FlowListView.swift in Sources */,
 				F002777B2A841AFB008A9615 /* LoginViewModel.swift in Sources */,

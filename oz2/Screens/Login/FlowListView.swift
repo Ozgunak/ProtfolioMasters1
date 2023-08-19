@@ -14,12 +14,10 @@ struct FlowListView: View {
     @FirestoreQuery(collectionPath: "projects", animation: .easeIn) var projects: [FlowItemModel]
     @Environment(\.dismiss) private var dismiss
     @State private var isNewListPresented: Bool = false
+    @State private var isNewProjectPresented: Bool = false
     @Binding var showLoginView: Bool
     @StateObject private var viewModel = FlowListViewModel()
     @State private var titleText: String = "Welcome"
-    
-    
-    
 
     
     var body: some View {
@@ -28,7 +26,7 @@ struct FlowListView: View {
 //                ForEach(flowItems) { item in
 //                    VStack(alignment: .leading) {
 //                        NavigationLink(destination: {
-//                            FlowDetailView(flow: item)
+//                            CreateProfileView(flow: item)
 //                        }, label: {
 //                            FlowHeaderView(name: item.name, title: item.title, country: "Ca", profileImage: item.profileImage)
 //                        })
@@ -38,7 +36,7 @@ struct FlowListView: View {
                 ForEach(projects) { item in
                     VStack(alignment: .leading) {
                         NavigationLink(destination: {
-//                            FlowDetailView(flow: item)
+//                            CreateProfileView(flow: item)
                         }, label: {
                             ProjectFlowItemView(project: item)
                         })
@@ -75,7 +73,7 @@ struct FlowListView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu("Add") {
                         Button {
-                            isNewListPresented.toggle()
+                            isNewProjectPresented.toggle()
                         } label: {
                             Image(systemName: "plus")
                             Text("Add New Project")
@@ -95,7 +93,12 @@ struct FlowListView: View {
             // MARK: sheet
             .sheet(isPresented: $isNewListPresented) {
                 NavigationStack {
-                    FlowDetailView(flow: FlowModel())
+                    CreateProfileView(flow: FlowModel())
+                }
+            }
+            .sheet(isPresented: $isNewProjectPresented) {
+                NavigationStack {
+                    NewProjectView(project: ProjectModel())
                 }
             }
         }

@@ -7,13 +7,68 @@
 
 import Foundation
 
+struct DBUser: Codable  {
+    var userId: String
+    var isAnonymous: Bool?
+    var dateCreated: Date?
+    var email: String?
+    var photoURL: String?
+    var displayName: String?
+    var name: String? = ""
+    var title: String? = ""
+    var description: String? = ""
+    var aboutMe: String? = ""
+    var country: String? = "Canada"
+    var profileImageUrl: String? = ""
+    var githubURL: String? = ""
+    var linkedInURL: String? = ""
+    var twitterURL: String? = ""
+    var facebookURL: String? = ""
+    var instagramURL: String? = ""
+    var personalWebsiteURL: String? = ""
+    
+    
+    init(auth: AuthDataResultModel) {
+        self.userId = auth.uid
+        self.email = auth.email
+        self.isAnonymous = auth.isAnonymous
+        self.dateCreated = Date()
+        self.photoURL = auth.photoURL
+        self.displayName = auth.displayName
+    }
+}
+
 class MyProfileViewModel: ObservableObject {
     @Published var myProfile: UserProfileModel = UserProfileModel(name: "", title: "")
+    @Published var user: DBUser?
     
     init() {
         loadProfile()
-//        myProfile = UserProfileModel(name: "1", title: "1", country: "CA", projects: testProjects)
     }
+    
+    func getProfile() async throws {
+        let authResult = try AuthenticationManager.shared.getAuthUser()
+        self.user = try await FirestoreManager.shared.getUser(userID: authResult.uid)
+        myProfile = UserProfileModel(id: user?.userId,
+                                     name: user?.name ?? "",
+                                     title: user?.title ?? "",
+                                     aboutMe: user?.aboutMe ?? "",
+                                     country: user?.country ?? "",
+                                     profileImageUrl: user?.profileImageUrl ?? "",
+                                     projects: nil,
+                                     githubURL: user?.githubURL ?? "",
+                                     linkedInURL: user?.linkedInURL ?? "",
+                                     twitterURL: user?.twitterURL ?? "",
+                                     facebookURL: user?.facebookURL ?? "",
+                                     instagramURL: user?.instagramURL ?? "",
+                                     personalWebsiteURL: user?.personalWebsiteURL ?? "")
+        // TODO: continue
+    }
+
+    
+    
+    
+    // MARK: Save to documents
     
     func createNewProfile(newProfile: UserProfileModel) {
         // save to coredata
@@ -26,6 +81,8 @@ class MyProfileViewModel: ObservableObject {
             print("ERROR: Could not save data \(error.localizedDescription)")
         }
         // save to cloud
+        
+        // update auth user profile
     }
     
     func saveProfile() {

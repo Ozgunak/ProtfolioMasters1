@@ -10,27 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import FirebaseStorage
 
-struct DBUser: Codable  {
-    var userId: String
-    var isAnonymous: Bool?
-    var dateCreated: Date?
-    var email: String?
-    var photoURL: String?
-    var displayName: String?
-    var name: String? = ""
-    var title: String? = ""
-    var description: String? = ""
-    var aboutMe: String? = ""
-    
-    init(auth: AuthDataResultModel) {
-        self.userId = auth.uid
-        self.email = auth.email
-        self.isAnonymous = auth.isAnonymous
-        self.dateCreated = Date()
-        self.photoURL = auth.photoURL
-        self.displayName = auth.displayName
-    }
-}
+
 
 final class FirestoreManager {
     

@@ -18,7 +18,6 @@ struct NewProjectView: View {
     @State private var showingImagePicker = false
     @State private var activeImageIndex: Int?
     @State private var selectedTech = "Swift"
-    @State var profile: FlowModel
     @State var project: ProjectModel
     @State private var isLoading: Bool = false
     
@@ -32,19 +31,20 @@ struct NewProjectView: View {
             Form {
                 if !project.imageNames.isEmpty {
                     Section(header: Text("Uploaded Images")) {
-    //                    HStack {
-    //                        ForEach(project.imageNames, id: \.self) { url in
-    //                            AsyncImage(url: URL(string: url)) { image in
-    //                                image
-    //                                    .resizable()
-    //                                    .scaledToFit()
-    //                            } placeholder: {
-    //                                ProgressView()
-    //                            }
-    //
-    //                        }
-    //                    }
-                        CarouselDetailView(imageNames: project.imageNames)
+                        HStack {
+                            ForEach(project.imageNames, id: \.self) { url in
+                                AsyncImage(url: URL(string: url)) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 300)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+    
+                            }
+                        }
+//                        CarouselDetailView(imageNames: project.imageNames)
                     }
                 }
                 Section(header: Text("Select Images")) {
@@ -118,7 +118,7 @@ struct NewProjectView: View {
     func saveProject() {
         isLoading.toggle()
         Task {
-            let result = await newProjectVM.saveProjectWithImage(profile: profile, project:project, projectPhotos: ProjectPhotos(), images: selectedImages)
+            let result = try await newProjectVM.saveProjectWithImage(project: project, projectPhotos: ProjectPhotos(), images: selectedImages)
             if result {
                 isLoading.toggle()
                 dismiss()
@@ -134,7 +134,7 @@ struct NewProjectView: View {
 struct NewProjectView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            NewProjectView(profile: FlowModel(), project: ProjectModel())
+            NewProjectView(project: ProjectModel())
         }
     }
 }

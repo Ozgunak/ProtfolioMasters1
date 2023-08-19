@@ -109,7 +109,7 @@ struct ProjModel: Identifiable, Codable {
     @DocumentID var id: String?
     var name: String = ""
     var title: String = ""
-    var owner: String = Auth.auth().currentUser?.email ?? ""
+    var owner: String = Auth.auth().currentUser?.uid ?? ""
     //    var postedOn: Date = Date()
     
     var dictionary:  [String: Any] {

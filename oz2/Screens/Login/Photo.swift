@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 struct Photo: Identifiable, Codable, Hashable {
     @DocumentID var id: String?
     var imageURLString: String = ""
-    var owner = Auth.auth().currentUser?.email ?? ""
+    var owner = Auth.auth().currentUser?.uid ?? ""
     var postedOn = Date()
     
     var dictionary: [String: Any] {

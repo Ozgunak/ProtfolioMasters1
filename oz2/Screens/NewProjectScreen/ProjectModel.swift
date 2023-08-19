@@ -17,7 +17,7 @@ struct ProjectModel : Hashable, Identifiable, Codable {
 //    var developmentTime: String?
     var imageNames: [String] = []
     var detail: String  = ""
-    var owner: String = Auth.auth().currentUser?.email ?? ""
+    var owner: String = Auth.auth().currentUser?.uid ?? ""
 
     var dictionary:  [String: Any] {
         return ["name": name, "description": description, "imageNames": imageNames, "detail": detail, "owner": owner, "postedOn": Timestamp(date: Date.now)]

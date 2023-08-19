@@ -12,8 +12,9 @@ struct FlowModel: Identifiable, Codable {
     @DocumentID var id: String?
     var name: String = ""
     var title: String = ""
-    var owner: String = Auth.auth().currentUser?.email ?? ""
+    var owner: String = Auth.auth().currentUser?.uid ?? ""
     var profileImage: String = ""
+    
     var dictionary:  [String: Any] {
         return ["name": name, "title": title, "profileImage": profileImage, "owner": owner]
     }

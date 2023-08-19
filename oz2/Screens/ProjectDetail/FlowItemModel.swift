@@ -19,7 +19,7 @@ struct FlowItemModel : Hashable, Identifiable, Codable {
     var profileID: String = ""
     var progileImage: String = ""
     var imageNames: [String] = []
-    var owner: String = Auth.auth().currentUser?.email ?? ""
+    var owner: String = Auth.auth().currentUser?.uid ?? ""
 
     var dictionary:  [String: Any] {
         return ["name": name,

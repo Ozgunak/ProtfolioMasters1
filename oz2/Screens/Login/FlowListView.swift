@@ -13,7 +13,7 @@ struct FlowListView: View {
     @FirestoreQuery(collectionPath: "flowItem", animation: .easeIn) var flowItems: [FlowModel]
     @FirestoreQuery(collectionPath: "projects", animation: .easeIn) var projects: [FlowItemModel]
     @Environment(\.dismiss) private var dismiss
-    @State private var isNewListPresented: Bool = false
+    @State private var isNewProfilePresented: Bool = false
     @State private var isNewProjectPresented: Bool = false
     @Binding var showLoginView: Bool
     @StateObject private var viewModel = FlowListViewModel()
@@ -71,29 +71,26 @@ struct FlowListView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu("Add") {
-                        Button {
+                    Button {
                             isNewProjectPresented.toggle()
                         } label: {
                             Image(systemName: "plus")
-                            Text("Add New Project")
+//                            Text("Add New Project")
                         }
-                        
-                        Button {
-                            isNewListPresented.toggle()
-                        } label: {
-                            Image(systemName: "plus")
-                            Text("Add New Profile")
-                        }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isNewProfilePresented.toggle()
+                    } label: {
+                        Image(systemName: "person")
+//                        Text("Add New Profile")
                     }
-                    
-                    
                 }
             }
             // MARK: sheet
-            .sheet(isPresented: $isNewListPresented) {
+            .sheet(isPresented: $isNewProfilePresented) {
                 NavigationStack {
-                    CreateProfileView(flow: FlowModel())
+                    NewProfileView()
                 }
             }
             .sheet(isPresented: $isNewProjectPresented) {

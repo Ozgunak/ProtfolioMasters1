@@ -27,16 +27,7 @@ struct LoginView: View {
             Color(.darkGray).ignoresSafeArea()
             
             VStack(spacing: 20) {
-                Image("plusButton")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-                    .cornerRadius(20)
-                Text("Welcome! \nPlease sign in:")
-                    .font(.headline)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
-     
+                ImageAndWelcomeImages()
                 // MARK: Text Fields
                 Group {
                     TextField("E-Mail", text: $viewModel.email)
@@ -167,5 +158,22 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView(showLoginView: .constant(true))
+    }
+}
+
+struct ImageAndWelcomeImages: View {
+    var body: some View {
+        Group {
+            Image("plusButton")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .cornerRadius(20)
+            
+            Text("Welcome! \nPlease sign in:")
+                .font(.headline)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+        }
     }
 }

@@ -19,12 +19,30 @@ final class FirestoreManager {
     
     private let userCollection = Firestore.firestore().collection("users")
     
+    func getUser(userID: String) async throws -> DBUser {
+        return try await userCollection.document(userID).getDocument(as: DBUser.self)
+    }
+    
     func createUser(user: DBUser) async throws {
         try userCollection.document(user.userId).setData(from: user)
     }
     
-    func getUser(userID: String) async throws -> DBUser {
-        return try await userCollection.document(userID).getDocument(as: DBUser.self)
+    func updateUser(userID: String, profileModel: UserProfileModel) async throws {
+        let data: [String:Any] = [
+            DBUser.CodingKeys.name.stringValue: profileModel.name,
+            DBUser.CodingKeys.title.stringValue: profileModel.title,
+            DBUser.CodingKeys.aboutMe.stringValue: profileModel.aboutMe,
+            DBUser.CodingKeys.country.stringValue: profileModel.country,
+            DBUser.CodingKeys.profileImageUrl.stringValue: profileModel.profileImageUrl,
+            DBUser.CodingKeys.githubURL.stringValue: profileModel.githubURL,
+            DBUser.CodingKeys.linkedInURL.stringValue: profileModel.linkedInURL,
+            DBUser.CodingKeys.twitterURL.stringValue: profileModel.twitterURL,
+            DBUser.CodingKeys.facebookURL.stringValue: profileModel.facebookURL,
+            DBUser.CodingKeys.instagramURL.stringValue: profileModel.instagramURL,
+            DBUser.CodingKeys.personalWebsiteURL.stringValue: profileModel.personalWebsiteURL
+        ]
+        
+        try await userCollection.document(userID).updateData(data)
     }
     
     func createProject(profileID: String, project: ProjectModel, images: [UIImage?]) async throws -> Bool {
@@ -84,7 +102,7 @@ final class FirestoreManager {
                 }
             }
             
-            // second way save image names on project file
+            // save image names on project file
             
             let projString = "flowItem/\(profileID)/projects"
             

@@ -15,9 +15,6 @@ struct NewProfileView: View {
         return profileVM.myProfile.name != "" ? "Edit Profile" : "Create New Profile"
     }
     
-    
-    
-
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.dismiss) private var dismiss
     @StateObject var profileVM = MyProfileViewModel()
@@ -45,11 +42,13 @@ struct NewProfileView: View {
                 }
                 
                 Section(header: Text("Personal Information")) {
-                    TextField("Name", text: $profileVM.myProfile.name)
-                    TextField("Title", text: $profileVM.myProfile.title)
-                    
-                    TextField("About Me", text: $profileVM.myProfile.aboutMe, axis: .vertical)
-                    //                        TextField("About Me", text: $profile.aboutMe)
+                    Group {
+                        TextField("Name", text: $profileVM.myProfile.name)
+                        TextField("Title", text: $profileVM.myProfile.title)
+                            .textInputAutocapitalization(.never)
+                        TextField("About Me", text: $profileVM.myProfile.aboutMe, axis: .vertical)
+                    }
+                    .autocorrectionDisabled()                    
                 }
                 
                 Section(header: Text("Location")) {
@@ -61,12 +60,15 @@ struct NewProfileView: View {
                 }
                 
                 Section(header: Text("Social Links")) {
-                    TextField("GitHub URL", text: $profileVM.myProfile.githubURL)
-                    TextField("LinkedIn URL", text: $profileVM.myProfile.linkedInURL)
-                    TextField("Twitter URL", text: $profileVM.myProfile.twitterURL)
-                    TextField("Facebook URL", text: $profileVM.myProfile.facebookURL)
-                    TextField("Instagram URL", text: $profileVM.myProfile.instagramURL)
-                    TextField("Personal Website", text: $profileVM.myProfile.personalWebsiteURL)
+                    Group {
+                        TextField("GitHub URL", text: $profileVM.myProfile.githubURL)
+                        TextField("LinkedIn URL", text: $profileVM.myProfile.linkedInURL)
+                        TextField("Twitter URL", text: $profileVM.myProfile.twitterURL)
+                        TextField("Facebook URL", text: $profileVM.myProfile.facebookURL)
+                        TextField("Instagram URL", text: $profileVM.myProfile.instagramURL)
+                        TextField("Personal Website", text: $profileVM.myProfile.personalWebsiteURL)
+                    }
+                    .autocorrectionDisabled()
                 }
             }
             .navigationBarTitle(titleText, displayMode: .inline)
@@ -78,26 +80,33 @@ struct NewProfileView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save", action: {
-                        self.saveProfile()
-                        
-                    }
-                    )
+                        Task {
+                            await saveProfile()
+                        }
+                    })
                 }
             })
+            .task {
+                do {
+                    try await profileVM.getProfile()
+                } catch {
+                    print("Error: getting profile \(error.localizedDescription)")
+                }
+            }
         }
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
             ImagePicker(image: self.$inputImage)
         }
     }
     
-    func saveProfile() {
+    func saveProfile() async {
         // Implement the logic to save the profile
         // TODO: create dbuser 
-        profileVM.createNewProfile(newProfile: UserProfileModel(id: UUID().uuidString,
-                                                                name: profileVM.myProfile.name,
-                                                                title: profileVM.myProfile.title,
-                                                                aboutMe: profileVM.myProfile.aboutMe,
-                                                                country: profileVM.myProfile.country))
+        do {
+            try await profileVM.createNewProfile()
+        } catch {
+            print("Error: creating / updating profile \(error.localizedDescription)")
+        }
         dismiss()
     }
     

@@ -7,36 +7,7 @@
 
 import Foundation
 
-struct DBUser: Codable  {
-    var userId: String
-    var isAnonymous: Bool?
-    var dateCreated: Date?
-    var email: String?
-    var photoURL: String?
-    var displayName: String?
-    var name: String? = ""
-    var title: String? = ""
-    var description: String? = ""
-    var aboutMe: String? = ""
-    var country: String? = "Canada"
-    var profileImageUrl: String? = ""
-    var githubURL: String? = ""
-    var linkedInURL: String? = ""
-    var twitterURL: String? = ""
-    var facebookURL: String? = ""
-    var instagramURL: String? = ""
-    var personalWebsiteURL: String? = ""
-    
-    
-    init(auth: AuthDataResultModel) {
-        self.userId = auth.uid
-        self.email = auth.email
-        self.isAnonymous = auth.isAnonymous
-        self.dateCreated = Date()
-        self.photoURL = auth.photoURL
-        self.displayName = auth.displayName
-    }
-}
+
 
 class MyProfileViewModel: ObservableObject {
     @Published var myProfile: UserProfileModel = UserProfileModel(name: "", title: "")
@@ -62,7 +33,9 @@ class MyProfileViewModel: ObservableObject {
                                      facebookURL: user?.facebookURL ?? "",
                                      instagramURL: user?.instagramURL ?? "",
                                      personalWebsiteURL: user?.personalWebsiteURL ?? "")
+        
         // TODO: continue
+        
     }
 
     
@@ -70,9 +43,15 @@ class MyProfileViewModel: ObservableObject {
     
     // MARK: Save to documents
     
-    func createNewProfile(newProfile: UserProfileModel) {
+    func createNewProfile() async throws {
+        // save to cloud
+        let authResult = try AuthenticationManager.shared.getAuthUser()
+        try await FirestoreManager.shared.updateUser(userID: authResult.uid, profileModel: myProfile)
+        
+        
+        
         // save to coredata
-        myProfile = newProfile
+//        myProfile = newProfile
         let path = URL.documentsDirectory.appending(component: "myProfile")
         let data = try? JSONEncoder().encode(myProfile)
         do {
@@ -80,7 +59,6 @@ class MyProfileViewModel: ObservableObject {
         } catch {
             print("ERROR: Could not save data \(error.localizedDescription)")
         }
-        // save to cloud
         
         // update auth user profile
     }

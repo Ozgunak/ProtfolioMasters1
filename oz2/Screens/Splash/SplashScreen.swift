@@ -16,7 +16,7 @@ struct SplashScreen: View {
     var body: some View {
         ZStack {
             if !showSigninView {
-                FlowListView(showLoginView: $showSigninView)
+                TabBarView(showLoginView: $showSigninView)
             }
         }
         .onAppear {

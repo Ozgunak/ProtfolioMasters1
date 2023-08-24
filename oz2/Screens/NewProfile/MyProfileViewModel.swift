@@ -46,6 +46,7 @@ class MyProfileViewModel: ObservableObject {
     func createNewProfile() async throws {
         // save to cloud
         let authResult = try AuthenticationManager.shared.getAuthUser()
+//         TODO: upload profile image
         try await FirestoreManager.shared.updateUser(userID: authResult.uid, profileModel: myProfile)
         
         

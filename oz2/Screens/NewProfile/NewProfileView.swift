@@ -86,6 +86,7 @@ struct NewProfileView: View {
                     })
                 }
             })
+            // MARK: Task
             .task {
                 do {
                     try await profileVM.getProfile()
@@ -94,6 +95,7 @@ struct NewProfileView: View {
                 }
             }
         }
+        // MARK: sheet
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
             ImagePicker(image: self.$inputImage)
         }

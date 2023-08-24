@@ -18,21 +18,15 @@ struct FlowListView: View {
     @Binding var showLoginView: Bool
     @StateObject private var viewModel = FlowListViewModel()
     @State private var titleText: String = "Welcome"
+    @State private var queries: [QueryPredicate] = []
+    
+    
+    
 
     
     var body: some View {
-        NavigationStack {
+        
             List {
-//                ForEach(flowItems) { item in
-//                    VStack(alignment: .leading) {
-//                        NavigationLink(destination: {
-//                            CreateProfileView(flow: item)
-//                        }, label: {
-//                            FlowHeaderView(name: item.name, title: item.title, country: "Ca", profileImage: item.profileImage)
-//                        })
-//
-//                    }
-//                }
                 ForEach(projects) { item in
                     VStack(alignment: .leading) {
                         NavigationLink(destination: {
@@ -98,7 +92,7 @@ struct FlowListView: View {
                     NewProjectView(project: ProjectModel())
                 }
             }
-        }
+        
     }
 }
 

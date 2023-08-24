@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 import FirebaseFirestoreSwift
 
-struct CreateProfileView: View {
+struct OldProfileView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var flowItemVM = FlowDetailViewModel()
     @State private var isAlertPresented: Bool = false
@@ -201,10 +201,10 @@ struct CreateProfileView: View {
     }
 }
 
-struct CreateProfileView_Previews: PreviewProvider {
+struct OldProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CreateProfileView(flow: FlowModel(), previewRunning: true)
+            OldProfileView(flow: FlowModel(), previewRunning: true)
         }
     }
 }

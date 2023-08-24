@@ -11,8 +11,6 @@ import Firebase
 
 struct LoginView: View {
     enum Field { case email, password }
-    @State private var email: String = "1@2.com"
-    @State private var password: String = "123qwe"
     @State private var isAlertShowing: Bool = false
     @State private var alertMessage: String = ""
     @State private var showContext: Bool = false
@@ -140,7 +138,7 @@ struct LoginView: View {
     }
     
     func logIn() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        Auth.auth().signIn(withEmail: viewModel.email, password: viewModel.password) { result, error in
             if let error {
                 print("😡 Error Log-In: \(error.localizedDescription)")
                 alertMessage = "Error Log-In: \(error.localizedDescription)"

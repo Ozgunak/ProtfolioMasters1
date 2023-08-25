@@ -50,7 +50,7 @@ struct MyProfileScreen: View {
                     }
                     VStack(alignment: .leading) {
 //                        CarouselView(projects1: $profileVM.myProfile.projects)
-                        InfoView().padding(.horizontal)
+//                        InfoView().padding(.horizontal)
                     }
                 }
             }

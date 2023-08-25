@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class ProfileViewModel: ObservableObject {
     @Published var userProfile: DBUser?
     
@@ -14,21 +15,34 @@ final class ProfileViewModel: ObservableObject {
         let authResult = try AuthenticationManager.shared.getAuthUser()
         print("getting user for: \(authResult.uid)")
         self.userProfile = try await FirestoreManager.shared.getUser(userID: authResult.uid)
-        
 //
         // TODO: continue
         
     }
+
+    
 }
 
-
+extension Binding {
+    public func defaultValue<T>(_ value: T) -> Binding<T> where Value == Optional<T> {
+        Binding<T> {
+            wrappedValue ?? value
+        } set: {
+            wrappedValue = $0
+        }
+    }
+}
 
 struct ProfileView: View {
     @StateObject var viewModel = ProfileViewModel()
     @State private var isNewProfile: Bool = false
+    @State private var aboutMeText: String = ""
+    
+    
+    
 
     var body: some View {
-        HStack  {
+        VStack  {
             if !isNewProfile {
 //                FlowHeaderView(name: viewModel.userProfile?.name ?? "", title: viewModel.userProfile?.title ?? "", country: viewModel.userProfile?.country ?? "", profileImage: viewModel.userProfile?.profileImageUrl ?? "")
                 HStack(alignment: .top) {
@@ -72,14 +86,51 @@ struct ProfileView: View {
                 }
                 .padding()
             }
+            InfoView(aboutMeText: $aboutMeText)
             Spacer()
+            if let github = viewModel.userProfile?.githubURL, !github.isEmpty {
+                Link(destination: URL(string: "https://github.com/ozgunak")!) {
+                    Image("github")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                    Text("GitHub")
+                }
+                .padding()
+                .background(.thinMaterial)
+                .clipShape(Capsule())
+                .shadow(radius: 10)
+            }
+            if let linkedIn = viewModel.userProfile?.linkedInURL, !linkedIn.isEmpty {
+                Link(destination: URL(string: "https://github.com/ozgunak")!) {
+                    Image("linkedin")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                    Text("LinkedIn")
+                }
+                .padding()
+                .background(.thinMaterial)
+                .clipShape(Capsule())
+                .shadow(radius: 10)
+            }
+            if let web = viewModel.userProfile?.personalWebsiteURL, !web.isEmpty {
+                Link(destination: URL(string: "https://github.com/ozgunak")!) {
+                    Image(systemName: "globe")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                    Text("Web Site")
+                }
+                .padding()
+                .background(.thinMaterial)
+                .clipShape(Capsule())
+                .shadow(radius: 10)
+            }
         }
         // MARK: Task
         .task {
             do {
                 try await viewModel.getProfile()
-                print("profile \(viewModel.userProfile)")
                 self.isNewProfile = viewModel.userProfile == nil
+                self.aboutMeText = viewModel.userProfile?.aboutMe ?? ""
             } catch {
                 print("Error: getting profile \(error.localizedDescription)")
             }
@@ -90,6 +141,7 @@ struct ProfileView: View {
             Task {
                 do {
                     try await viewModel.getProfile()
+                    self.aboutMeText = viewModel.userProfile?.aboutMe ?? ""
                 } catch {
                     print("Error: getting profile \(error.localizedDescription)")
                 }
@@ -99,13 +151,30 @@ struct ProfileView: View {
                 NewProfileView()
             }
         }
+        // MARK: toolbar
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Edit", action: {
+                    isNewProfile.toggle()
+                })
+            }
+        })
 
     }
         
 }
 
+func ??<T>(lhs: Binding<Optional<T>>, rhs: T) -> Binding<T> {
+    Binding(
+        get: { lhs.wrappedValue ?? rhs },
+        set: { lhs.wrappedValue = $0 }
+    )
+}
+
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        NavigationStack {
+            ProfileView()
+        }
     }
 }

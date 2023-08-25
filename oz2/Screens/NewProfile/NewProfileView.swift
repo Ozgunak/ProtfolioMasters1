@@ -115,6 +115,15 @@ struct NewProfileView: View {
     func loadImage() {
         guard let inputImage = inputImage else { return }
         profileImage = Image(uiImage: inputImage)
+        Task {
+            do {
+                try await profileVM.saveImage(image: inputImage)
+            } catch {
+                print("Error: save image \(error.localizedDescription)")
+            }
+        }
+        
+            
     }
 }
 

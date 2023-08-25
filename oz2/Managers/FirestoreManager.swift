@@ -45,6 +45,15 @@ final class FirestoreManager {
         try await userCollection.document(userID).updateData(data)
     }
     
+    func updateUserProfileImagePath(userId: String, path: String?, url: String?) async throws {
+        let data: [String:Any] = [
+            DBUser.CodingKeys.profileImagePath.rawValue : path,
+            DBUser.CodingKeys.profileImageUrl.rawValue : url,
+        ]
+
+        try await userCollection.document(userId).updateData(data)
+    }
+    
     func createProject(profileID: String, project: ProjectModel, images: [UIImage?]) async throws -> Bool {
         let db = Firestore.firestore()
         print("Project save init")

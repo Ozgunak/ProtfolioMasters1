@@ -50,6 +50,7 @@ struct DBUser: Codable  {
     var aboutMe: String? = ""
     var country: String? = "Canada"
     var profileImageUrl: String? = ""
+    var profileImagePath: String? = ""
     var githubURL: String? = ""
     var linkedInURL: String? = ""
     var twitterURL: String? = ""
@@ -58,7 +59,7 @@ struct DBUser: Codable  {
     var personalWebsiteURL: String? = ""
     
     
-    init(userId: String, isAnonymous: Bool? = nil, dateCreated: Date? = nil, email: String? = nil, photoURL: String? = nil, displayName: String? = nil, name: String? = nil, title: String? = nil, aboutMe: String? = nil, country: String? = nil, profileImageUrl: String? = nil, githubURL: String? = nil, linkedInURL: String? = nil, twitterURL: String? = nil, facebookURL: String? = nil, instagramURL: String? = nil, personalWebsiteURL: String? = nil) {
+    init(userId: String, isAnonymous: Bool? = nil, dateCreated: Date? = nil, email: String? = nil, photoURL: String? = nil, displayName: String? = nil, name: String? = nil, title: String? = nil, aboutMe: String? = nil, country: String? = nil, profileImageUrl: String? = nil, profileImagePath: String? = nil, githubURL: String? = nil, linkedInURL: String? = nil, twitterURL: String? = nil, facebookURL: String? = nil, instagramURL: String? = nil, personalWebsiteURL: String? = nil) {
         self.userId = userId
         self.isAnonymous = isAnonymous
         self.dateCreated = dateCreated
@@ -70,6 +71,7 @@ struct DBUser: Codable  {
         self.aboutMe = aboutMe
         self.country = country
         self.profileImageUrl = profileImageUrl
+        self.profileImagePath = profileImagePath
         self.githubURL = githubURL
         self.linkedInURL = linkedInURL
         self.twitterURL = twitterURL
@@ -99,6 +101,7 @@ struct DBUser: Codable  {
         case aboutMe
         case country
         case profileImageUrl
+        case profileImagePath
         case githubURL
         case linkedInURL
         case twitterURL

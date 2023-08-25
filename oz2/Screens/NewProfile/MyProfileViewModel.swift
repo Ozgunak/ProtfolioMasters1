@@ -6,9 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-
-
+@MainActor
 class MyProfileViewModel: ObservableObject {
     @Published var myProfile: UserProfileModel = UserProfileModel(name: "", title: "")
     @Published var user: DBUser?
@@ -39,7 +39,22 @@ class MyProfileViewModel: ObservableObject {
     }
 
     
-    
+    func saveImage(image: UIImage) async throws {
+            guard let user else { return }
+
+            Task {
+                guard let data = image.jpegData(compressionQuality: 0.5) else {
+                    throw URLError(.backgroundSessionWasDisconnected)
+                }
+                let (path, name) = try await StorageManager.shared.saveImage(data: data, userId: user.userId)
+                print("SUCCESS!")
+                print(path)
+                print(name)
+                let url = try await StorageManager.shared.getUrlForImage(path: path)
+                try await FirestoreManager.shared.updateUserProfileImagePath(userId: user.userId, path: path, url: url.absoluteString)
+            }
+        
+    }
     
     // MARK: Save to documents
     
@@ -47,6 +62,7 @@ class MyProfileViewModel: ObservableObject {
         // save to cloud
         let authResult = try AuthenticationManager.shared.getAuthUser()
 //         TODO: upload profile image
+        
         try await FirestoreManager.shared.updateUser(userID: authResult.uid, profileModel: myProfile)
         
         

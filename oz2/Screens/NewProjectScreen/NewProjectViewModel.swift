@@ -9,6 +9,7 @@ import Foundation
 import FirebaseStorage
 import FirebaseFirestore
 
+@MainActor
 class NewProjectViewModel: ObservableObject {
     @Published var newProject = ProjectModel()
         

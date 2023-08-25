@@ -48,7 +48,7 @@ struct UsersProfileScreen: View {
 //                        CarouselDetailView(imageNames: user.projectImageList())
                         
 //                        CarouselView(projects1: $user.projects)
-                        InfoView().padding(.horizontal)
+//                        InfoView().padding(.horizontal)
                     }
                 }
             }

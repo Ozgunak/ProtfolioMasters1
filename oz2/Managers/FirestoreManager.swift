@@ -84,7 +84,7 @@ final class FirestoreManager {
             var newImages = images.filter( {$0 != nil })
             for image in newImages {
                 var photoName = UUID().uuidString // This will be the name of the image file
-                let storageRef = storage.reference().child("\(profileID)/\(refID)/\(photoName).jpeg")
+                let storageRef = storage.reference().child("projects/\(profileID)/\(refID)/\(photoName).jpeg")
                 guard let resizedImage = image?.jpegData(compressionQuality: 0.2) else {
                     print("😡 ERROR: Could not resize image")
                     return false

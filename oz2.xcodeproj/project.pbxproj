@@ -49,6 +49,7 @@
 		F0600AC32A9565AB00343253 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0600AC22A9565AB00343253 /* TabBarView.swift */; };
 		F0600ACB2A96FA0600343253 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0600ACA2A96FA0600343253 /* ProfileView.swift */; };
 		F0600ACD2A97FCC300343253 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0600ACC2A97FCC300343253 /* StorageManager.swift */; };
+		F0600AD12A9EA27F00343253 /* MagnificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0600AD02A9EA27F00343253 /* MagnificationView.swift */; };
 		F0CD40142A7ABCA000420ADE /* NewProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40132A7ABCA000420ADE /* NewProfileView.swift */; };
 		F0CD40162A7AC82100420ADE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40152A7AC82100420ADE /* SplashScreen.swift */; };
 		F0CD401A2A7AECC600420ADE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CD40192A7AECC600420ADE /* LoginView.swift */; };
@@ -101,6 +102,7 @@
 		F0600AC22A9565AB00343253 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		F0600ACA2A96FA0600343253 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F0600ACC2A97FCC300343253 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		F0600AD02A9EA27F00343253 /* MagnificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnificationView.swift; sourceTree = "<group>"; };
 		F0CD40132A7ABCA000420ADE /* NewProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileView.swift; sourceTree = "<group>"; };
 		F0CD40152A7AC82100420ADE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		F0CD40192A7AECC600420ADE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -241,14 +243,11 @@
 		F04712972A75D6C400DC0A68 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F0CD401D2A7AFB5000420ADE /* Splash */,
-				F0600AC02A95659700343253 /* TabView */,
 				F0CD401E2A7AFB5700420ADE /* Login */,
 				F0600AC42A95774D00343253 /* Main */,
 				F0280E402A8BD5C6003903E3 /* ProjectDetail */,
 				F00277672A828F3F008A9615 /* NewProjectScreen */,
 				F04712982A75D6D200DC0A68 /* Home */,
-				F002775F2A81E9D7008A9615 /* NewProfile */,
 				F0280E472A8E9417003903E3 /* Settings */,
 				F00277662A821856008A9615 /* UsersProfileScreen */,
 				F0CD40292A81E29200420ADE /* OtherScreens */,
@@ -286,8 +285,11 @@
 		F0600AC52A96F7D700343253 /* MVPScreens */ = {
 			isa = PBXGroup;
 			children = (
+				F0CD401D2A7AFB5000420ADE /* Splash */,
+				F0600AC02A95659700343253 /* TabView */,
 				F0600AC62A96F7EE00343253 /* Login */,
 				F0600AC72A96F7F700343253 /* Profile */,
+				F002775F2A81E9D7008A9615 /* NewProfile */,
 				F0600AC82A96F7FF00343253 /* Project */,
 				F0600AC92A96F80600343253 /* Settings */,
 			);
@@ -363,6 +365,7 @@
 				F047129C2A75D74900DC0A68 /* SocialLinkViews.swift */,
 				F047129E2A75D76B00DC0A68 /* ExpreienceView.swift */,
 				F04712A02A75D77F00DC0A68 /* SkillsView.swift */,
+				F0600AD02A9EA27F00343253 /* MagnificationView.swift */,
 				F04712A22A75D7E300DC0A68 /* ScrollableAppView.swift */,
 			);
 			path = OtherScreens;
@@ -461,6 +464,7 @@
 				F04712A32A75D7E300DC0A68 /* ScrollableAppView.swift in Sources */,
 				F00277812A8448C9008A9615 /* OldProfileView.swift in Sources */,
 				F00277872A85CA37008A9615 /* ProjDetailView.swift in Sources */,
+				F0600AD12A9EA27F00343253 /* MagnificationView.swift in Sources */,
 				F0600ACB2A96FA0600343253 /* ProfileView.swift in Sources */,
 				F002777D2A84451A008A9615 /* FlowListView.swift in Sources */,
 				F002777B2A841AFB008A9615 /* LoginViewModel.swift in Sources */,

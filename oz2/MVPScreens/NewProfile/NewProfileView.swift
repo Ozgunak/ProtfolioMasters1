@@ -46,7 +46,8 @@ struct NewProfileView: View {
                         TextField("Name", text: $profileVM.myProfile.name)
                         TextField("Title", text: $profileVM.myProfile.title)
                             .textInputAutocapitalization(.never)
-                        TextField("About Me", text: $profileVM.myProfile.aboutMe, axis: .vertical)
+//                        TextField("About Me", text: $profileVM.myProfile.aboutMe, axis: .vertical)
+                        TextEditor(text: $profileVM.myProfile.aboutMe)
                     }
                     .autocorrectionDisabled()                    
                 }
@@ -69,6 +70,8 @@ struct NewProfileView: View {
                         TextField("Personal Website", text: $profileVM.myProfile.personalWebsiteURL)
                     }
                     .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+
                 }
             }
             .navigationBarTitle(titleText, displayMode: .inline)
@@ -90,6 +93,7 @@ struct NewProfileView: View {
             .task {
                 do {
                     try await profileVM.getProfile()
+                    
                 } catch {
                     print("Error: getting profile \(error.localizedDescription)")
                 }

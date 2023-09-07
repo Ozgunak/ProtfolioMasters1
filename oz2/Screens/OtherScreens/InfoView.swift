@@ -43,8 +43,8 @@ struct InfoView: View {
                     .background(.thinMaterial)
                     .cornerRadius(20)
                     .shadow(radius: 2)
+                    
                 
-                SocialLinkViews()
                 
             case .skills:
                 SkillsView()

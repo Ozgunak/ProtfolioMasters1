@@ -12,6 +12,7 @@ struct FlowHeaderView: View {
     @State var title: String
     @State var country: String
     @State var profileImage: String
+    var imageSize: CGFloat = 45
     
     var body: some View {
         HStack(alignment: .top) {
@@ -21,7 +22,7 @@ struct FlowHeaderView: View {
                         .resizable()
                         .scaledToFill()
                     
-                        .frame(width: 100, height: 100)
+                        .frame(width: imageSize, height: imageSize)
                     
                         .clipShape(Circle())
                         .overlay {
@@ -31,12 +32,12 @@ struct FlowHeaderView: View {
                         }
                 } placeholder: {
                     ProgressView()
-                        .frame(width: 100, height: 100)
+                        .frame(width: imageSize, height: imageSize)
                 }
             } else {
                 Image(systemName: "person")
                     .resizable()
-                    .frame(width: 100, height: 100)
+                    .frame(width: imageSize, height: imageSize)
                     .clipShape(Circle())
                     .scaledToFill()
                     .overlay {
@@ -48,10 +49,10 @@ struct FlowHeaderView: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text(name).font(.title).fontWeight(.semibold).lineLimit(1)
+                Text(name).font(.headline).fontWeight(.semibold).lineLimit(1)
                 //                VStack() {
-                Text(title).font(.headline)
-                Text(country).font(.caption)
+                Text(title).font(.callout)
+//                Text(country).font(.caption)
                 //                }
             }
             .lineLimit(1)

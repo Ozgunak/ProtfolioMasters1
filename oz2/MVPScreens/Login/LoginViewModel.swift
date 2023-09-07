@@ -9,8 +9,8 @@ import Foundation
 
 @MainActor
 class LoginViewModel: ObservableObject {
-    @Published var email: String = ""
-    @Published var password: String = ""
+    @Published var email: String = "1@2.com"
+    @Published var password: String = "123qwe"
     
     func signUp() async throws {
         let authResult = try await AuthenticationManager.shared.createUser(email: email, password: password)

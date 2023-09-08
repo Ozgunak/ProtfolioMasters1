@@ -178,14 +178,6 @@
 			path = ProjectDetail;
 			sourceTree = "<group>";
 		};
-		F0280E472A8E9417003903E3 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				F0280E482A8E9429003903E3 /* SettingsView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		F0280E4A2A8E9F4F003903E3 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +186,16 @@
 				F0600ACC2A97FCC300343253 /* StorageManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		F02ADE4D2AAADCD40057DFAE /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				F04712992A75D6E900DC0A68 /* InfoView.swift */,
+				F04712A02A75D77F00DC0A68 /* SkillsView.swift */,
+				F047129E2A75D76B00DC0A68 /* ExpreienceView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		F04712782A708F9900DC0A68 = {
@@ -248,7 +250,6 @@
 				F0280E402A8BD5C6003903E3 /* ProjectDetail */,
 				F00277672A828F3F008A9615 /* NewProjectScreen */,
 				F04712982A75D6D200DC0A68 /* Home */,
-				F0280E472A8E9417003903E3 /* Settings */,
 				F00277662A821856008A9615 /* UsersProfileScreen */,
 				F0CD40292A81E29200420ADE /* OtherScreens */,
 			);
@@ -309,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				F0600ACA2A96FA0600343253 /* ProfileView.swift */,
+				F02ADE4D2AAADCD40057DFAE /* SubViews */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -323,6 +325,7 @@
 		F0600AC92A96F80600343253 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				F0280E482A8E9429003903E3 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -361,10 +364,7 @@
 			children = (
 				F04712A82A7A0CF900DC0A68 /* ExploreView.swift */,
 				F04712A42A75F9D500DC0A68 /* AppDetailView.swift */,
-				F04712992A75D6E900DC0A68 /* InfoView.swift */,
 				F047129C2A75D74900DC0A68 /* SocialLinkViews.swift */,
-				F047129E2A75D76B00DC0A68 /* ExpreienceView.swift */,
-				F04712A02A75D77F00DC0A68 /* SkillsView.swift */,
 				F0600AD02A9EA27F00343253 /* MagnificationView.swift */,
 				F04712A22A75D7E300DC0A68 /* ScrollableAppView.swift */,
 			);

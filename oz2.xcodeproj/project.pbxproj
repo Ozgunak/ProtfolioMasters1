@@ -32,6 +32,7 @@
 		F0280E462A8E84B0003903E3 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */; };
 		F0280E492A8E9429003903E3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E482A8E9429003903E3 /* SettingsView.swift */; };
 		F0280E4C2A8ED612003903E3 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E4B2A8ED612003903E3 /* FirestoreManager.swift */; };
+		F02ADE502AAF75330057DFAE /* Query+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02ADE4F2AAF75330057DFAE /* Query+EXT.swift */; };
 		F04712852A708F9900DC0A68 /* oz2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712842A708F9900DC0A68 /* oz2App.swift */; };
 		F04712872A708F9900DC0A68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712862A708F9900DC0A68 /* ContentView.swift */; };
 		F04712892A708F9A00DC0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04712882A708F9A00DC0A68 /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		F0280E482A8E9429003903E3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F0280E4B2A8ED612003903E3 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		F02ADE4F2AAF75330057DFAE /* Query+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+EXT.swift"; sourceTree = "<group>"; };
 		F04712812A708F9900DC0A68 /* oz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04712842A708F9900DC0A68 /* oz2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oz2App.swift; sourceTree = "<group>"; };
 		F04712862A708F9900DC0A68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,14 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		F02ADE4E2AAF75160057DFAE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F02ADE4F2AAF75330057DFAE /* Query+EXT.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F04712782A708F9900DC0A68 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +231,7 @@
 				F002776F2A841138008A9615 /* GoogleService-Info.plist */,
 				F04712842A708F9900DC0A68 /* oz2App.swift */,
 				F04712862A708F9900DC0A68 /* ContentView.swift */,
+				F02ADE4E2AAF75160057DFAE /* Extensions */,
 				F0600AC52A96F7D700343253 /* MVPScreens */,
 				F0280E4A2A8E9F4F003903E3 /* Managers */,
 				F002776A2A8290A5008A9615 /* HelperViews */,
@@ -473,6 +484,7 @@
 				F0280E4C2A8ED612003903E3 /* FirestoreManager.swift in Sources */,
 				F0CD40262A81E1C000420ADE /* FlowViewModel.swift in Sources */,
 				F04712942A7441FB00DC0A68 /* DetailAppView.swift in Sources */,
+				F02ADE502AAF75330057DFAE /* Query+EXT.swift in Sources */,
 				F0CD401A2A7AECC600420ADE /* LoginView.swift in Sources */,
 				F002776C2A8290B9008A9615 /* CarouselView.swift in Sources */,
 				F04712872A708F9900DC0A68 /* ContentView.swift in Sources */,

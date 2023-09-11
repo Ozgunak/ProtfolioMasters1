@@ -54,6 +54,24 @@ final class FirestoreManager {
         try await userCollection.document(userId).updateData(data)
     }
     
+    func createUserSkill(userID: String, skillModel: SkillModel) async throws {
+        try await userCollection.document(userID).collection("skills").addDocument(data: skillModel.dictionary)
+    }
+    
+    func getUserSkill(userID: String) async throws -> [SkillModel] {
+        return try await userCollection.document(userID).collection("skills").getDocuments(as: SkillModel.self)
+    }
+    
+    func deleteSkill(userID: String, skillID: String) {
+        userCollection.document(userID).collection("skills").document(skillID).delete() { error in
+            if let error {
+                print("Error: deleting \(error.localizedDescription)")
+            } else {
+                print("succesfully deleted")
+            }
+        }
+    }
+    
     func createProject(profileID: String, project: ProjectModel, images: [UIImage?]) async throws -> Bool {
         let db = Firestore.firestore()
         print("Project save init")

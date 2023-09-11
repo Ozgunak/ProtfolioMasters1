@@ -18,6 +18,7 @@ enum InfoTabs: String,Codable,CaseIterable {
 struct InfoView: View {
     @State var infoTabs: InfoTabs = .bio
     @Binding var aboutMeText: String
+    @Binding var isOwner: Bool
     
     var body: some View {
         VStack (alignment: .center, spacing: 12) {
@@ -47,7 +48,7 @@ struct InfoView: View {
                 
                 
             case .skills:
-                SkillsView()
+                SkillsView(isOwner: $isOwner)
                 
             case .experience:
                 ExpreienceView()
@@ -67,6 +68,6 @@ struct InfoView: View {
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView(aboutMeText: .constant("📱 Mobile App Magician \n 🎓 Master's in Software Dev \n 📲 iOS (Swift) & Flutter Enthusiast \n 2 Years of iOS Dev Experience \n 🚀 Let's bring ideas to life! "))
+        InfoView(aboutMeText: .constant("📱 Mobile App Magician \n 🎓 Master's in Software Dev \n 📲 iOS (Swift) & Flutter Enthusiast \n 2 Years of iOS Dev Experience \n 🚀 Let's bring ideas to life! "), isOwner: .constant(true))
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WebKit
+import Firebase
 
 @MainActor
 final class ProfileViewModel: ObservableObject {
@@ -79,7 +80,8 @@ struct ProfileView: View {
                     }
                     .padding()
                     
-                    InfoView(aboutMeText: $aboutMeText)
+                    
+                    InfoView(aboutMeText: $aboutMeText, isOwner: .constant(viewModel.userProfile?.userId == Auth.auth().currentUser?.uid))
                     Spacer()
                     
                     if let url = viewModel.userProfile?.githubURL, !url.isEmpty {

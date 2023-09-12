@@ -33,6 +33,7 @@
 		F0280E492A8E9429003903E3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E482A8E9429003903E3 /* SettingsView.swift */; };
 		F0280E4C2A8ED612003903E3 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0280E4B2A8ED612003903E3 /* FirestoreManager.swift */; };
 		F02ADE502AAF75330057DFAE /* Query+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02ADE4F2AAF75330057DFAE /* Query+EXT.swift */; };
+		F02ADE532AAFDCA10057DFAE /* AddSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02ADE522AAFDCA10057DFAE /* AddSkillView.swift */; };
 		F04712852A708F9900DC0A68 /* oz2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712842A708F9900DC0A68 /* oz2App.swift */; };
 		F04712872A708F9900DC0A68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712862A708F9900DC0A68 /* ContentView.swift */; };
 		F04712892A708F9A00DC0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04712882A708F9A00DC0A68 /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		F0280E482A8E9429003903E3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F0280E4B2A8ED612003903E3 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		F02ADE4F2AAF75330057DFAE /* Query+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+EXT.swift"; sourceTree = "<group>"; };
+		F02ADE522AAFDCA10057DFAE /* AddSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSkillView.swift; sourceTree = "<group>"; };
 		F04712812A708F9900DC0A68 /* oz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04712842A708F9900DC0A68 /* oz2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oz2App.swift; sourceTree = "<group>"; };
 		F04712862A708F9900DC0A68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -194,8 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				F04712992A75D6E900DC0A68 /* InfoView.swift */,
-				F04712A02A75D77F00DC0A68 /* SkillsView.swift */,
 				F047129E2A75D76B00DC0A68 /* ExpreienceView.swift */,
+				F02ADE542AAFF44A0057DFAE /* Skill View */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -206,6 +208,23 @@
 				F02ADE4F2AAF75330057DFAE /* Query+EXT.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F02ADE512AAFDC8A0057DFAE /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				F02ADE522AAFDCA10057DFAE /* AddSkillView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		F02ADE542AAFF44A0057DFAE /* Skill View */ = {
+			isa = PBXGroup;
+			children = (
+				F04712A02A75D77F00DC0A68 /* SkillsView.swift */,
+				F02ADE512AAFDC8A0057DFAE /* SubView */,
+			);
+			path = "Skill View";
 			sourceTree = "<group>";
 		};
 		F04712782A708F9900DC0A68 = {
@@ -491,6 +510,7 @@
 				F00277832A844AA3008A9615 /* FlowDetailViewModel.swift in Sources */,
 				F0280E462A8E84B0003903E3 /* AuthenticationManager.swift in Sources */,
 				F00277852A84839F008A9615 /* FlowListViewModel.swift in Sources */,
+				F02ADE532AAFDCA10057DFAE /* AddSkillView.swift in Sources */,
 				F047129D2A75D74900DC0A68 /* SocialLinkViews.swift in Sources */,
 				F0280E492A8E9429003903E3 /* SettingsView.swift in Sources */,
 				F04712A72A79FDFA00DC0A68 /* FlowScreen.swift in Sources */,

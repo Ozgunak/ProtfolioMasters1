@@ -37,22 +37,24 @@ class MyProfileViewModel: ObservableObject {
         // TODO: continue
         
     }
-
+    
     
     func saveImage(image: UIImage) async throws {
-            guard let user else { return }
-
-            Task {
-                guard let data = image.jpegData(compressionQuality: 0.5) else {
-                    throw URLError(.backgroundSessionWasDisconnected)
-                }
-                let (path, name) = try await StorageManager.shared.saveImage(data: data, userId: user.userId)
-                print("SUCCESS!")
-                print(path)
-                print(name)
-                let url = try await StorageManager.shared.getUrlForImage(path: path)
-                try await FirestoreManager.shared.updateUserProfileImagePath(userId: user.userId, path: path, url: url.absoluteString)
+        guard let user else { return }
+        
+        LocalFileManager.instance.saveImage(image: image, imageName: user.userId, folderName: "profileImage")
+        
+        Task {
+            guard let data = image.jpegData(compressionQuality: 0.5) else {
+                throw URLError(.backgroundSessionWasDisconnected)
             }
+            let (path, name) = try await StorageManager.shared.saveImage(data: data, userId: user.userId)
+            print("SUCCESS!")
+            print(path)
+            print(name)
+            let url = try await StorageManager.shared.getUrlForImage(path: path)
+            try await FirestoreManager.shared.updateUserProfileImagePath(userId: user.userId, path: path, url: url.absoluteString)
+        }
         
     }
     
@@ -61,14 +63,14 @@ class MyProfileViewModel: ObservableObject {
     func createNewProfile() async throws {
         // save to cloud
         let authResult = try AuthenticationManager.shared.getAuthUser()
-//         TODO: upload profile image
+        //         TODO: upload profile image
         
         try await FirestoreManager.shared.updateUser(userID: authResult.uid, profileModel: myProfile)
         
         
         
         // save to coredata
-//        myProfile = newProfile
+        //        myProfile = newProfile
         let path = URL.documentsDirectory.appending(component: "myProfile")
         let data = try? JSONEncoder().encode(myProfile)
         do {
@@ -131,7 +133,7 @@ Increasing, decreasing and deleting item from cart is possible.
 With this lovely app every order you make is a success.
 Since this is learning project, a few details created randomly like prices and images.
 """
-            , imageNames: ["grocery1", "grocery2", "grocery3", "grocery4", "grocery5"]),
-//    ProjectModel(name: "Add Project", description: "", tech: [])
+                 , imageNames: ["grocery1", "grocery2", "grocery3", "grocery4", "grocery5"]),
+    //    ProjectModel(name: "Add Project", description: "", tech: [])
 ]
 

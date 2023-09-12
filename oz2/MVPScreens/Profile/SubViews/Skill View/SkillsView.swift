@@ -50,6 +50,7 @@ struct SkillsView: View {
                                 .padding(.bottom, 4)
                             ForEach(0 ..< 5) { item in
                                 Image(systemName: skill.degree <= item ? "star" : "star.fill")
+                                    .foregroundColor(.accentColor)
                                 
                                 
                             }

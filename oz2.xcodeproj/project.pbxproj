@@ -35,6 +35,7 @@
 		F02ADE502AAF75330057DFAE /* Query+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02ADE4F2AAF75330057DFAE /* Query+EXT.swift */; };
 		F02ADE532AAFDCA10057DFAE /* AddSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02ADE522AAFDCA10057DFAE /* AddSkillView.swift */; };
 		F02ADE582AAFFCF70057DFAE /* AddExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02ADE572AAFFCF70057DFAE /* AddExperienceView.swift */; };
+		F02ADE5A2AB0F2760057DFAE /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02ADE592AB0F2760057DFAE /* LocalFileManager.swift */; };
 		F04712852A708F9900DC0A68 /* oz2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712842A708F9900DC0A68 /* oz2App.swift */; };
 		F04712872A708F9900DC0A68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04712862A708F9900DC0A68 /* ContentView.swift */; };
 		F04712892A708F9A00DC0A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04712882A708F9A00DC0A68 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		F02ADE4F2AAF75330057DFAE /* Query+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+EXT.swift"; sourceTree = "<group>"; };
 		F02ADE522AAFDCA10057DFAE /* AddSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSkillView.swift; sourceTree = "<group>"; };
 		F02ADE572AAFFCF70057DFAE /* AddExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperienceView.swift; sourceTree = "<group>"; };
+		F02ADE592AB0F2760057DFAE /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		F04712812A708F9900DC0A68 /* oz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04712842A708F9900DC0A68 /* oz2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oz2App.swift; sourceTree = "<group>"; };
 		F04712862A708F9900DC0A68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				F0280E452A8E84B0003903E3 /* AuthenticationManager.swift */,
 				F0280E4B2A8ED612003903E3 /* FirestoreManager.swift */,
 				F0600ACC2A97FCC300343253 /* StorageManager.swift */,
+				F02ADE592AB0F2760057DFAE /* LocalFileManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				F04712A92A7A0CF900DC0A68 /* ExploreView.swift in Sources */,
 				F04712852A708F9900DC0A68 /* oz2App.swift in Sources */,
 				F00277652A821088008A9615 /* MyProfileScreen.swift in Sources */,
+				F02ADE5A2AB0F2760057DFAE /* LocalFileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

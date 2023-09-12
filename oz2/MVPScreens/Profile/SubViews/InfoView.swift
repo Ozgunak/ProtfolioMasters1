@@ -51,7 +51,7 @@ struct InfoView: View {
                 SkillsView(isOwner: $isOwner)
                 
             case .experience:
-                ExpreienceView()
+                ExperienceView(isOwner: $isOwner)
                 
             case .apps:
                 ScrollableAppView()

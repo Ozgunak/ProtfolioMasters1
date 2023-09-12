@@ -54,18 +54,38 @@ final class FirestoreManager {
         try await userCollection.document(userId).updateData(data)
     }
     
+    // MARK: Skill CRUD
     func createUserSkill(userID: String, skillModel: SkillModel) async throws {
         try await userCollection.document(userID).collection("skills").addDocument(data: skillModel.dictionary)
     }
     
     func getUserSkill(userID: String) async throws -> [SkillModel] {
-        return try await userCollection.document(userID).collection("skills").getDocuments(as: SkillModel.self)
+        return try await userCollection.document(userID).collection("skills").order(by: "yearsOfExperience", descending: true).getDocuments(as: SkillModel.self)
     }
     
     func deleteSkill(userID: String, skillID: String) {
         userCollection.document(userID).collection("skills").document(skillID).delete() { error in
             if let error {
-                print("Error: deleting \(error.localizedDescription)")
+                print("Error: deleting skills \(error.localizedDescription)")
+            } else {
+                print("succesfully deleted")
+            }
+        }
+    }
+    // MARK: Experience CRUD
+
+    func createUserExperience(userID: String, experienceModel: ExperienceModel) async throws {
+        try await userCollection.document(userID).collection("experiences").addDocument(data: experienceModel.dictionary)
+    }
+    
+    func getUserExperience(userID: String) async throws -> [ExperienceModel] {
+        return try await userCollection.document(userID).collection("experiences").getDocuments(as: ExperienceModel.self)
+    }
+    
+    func deleteExperience(userID: String, experienceID: String) {
+        userCollection.document(userID).collection("experiences").document(experienceID).delete() { error in
+            if let error {
+                print("Error: deleting experiences \(error.localizedDescription)")
             } else {
                 print("succesfully deleted")
             }

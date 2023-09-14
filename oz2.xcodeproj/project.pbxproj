@@ -201,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				F04712992A75D6E900DC0A68 /* InfoView.swift */,
+				F04712A22A75D7E300DC0A68 /* ScrollableAppView.swift */,
 				F02ADE552AAFF8AC0057DFAE /* Experience View */,
 				F02ADE542AAFF44A0057DFAE /* Skill View */,
 			);
@@ -300,7 +301,6 @@
 				F0CD401E2A7AFB5700420ADE /* Login */,
 				F0600AC42A95774D00343253 /* Main */,
 				F0280E402A8BD5C6003903E3 /* ProjectDetail */,
-				F00277672A828F3F008A9615 /* NewProjectScreen */,
 				F04712982A75D6D200DC0A68 /* Home */,
 				F00277662A821856008A9615 /* UsersProfileScreen */,
 				F0CD40292A81E29200420ADE /* OtherScreens */,
@@ -344,6 +344,7 @@
 				F0600AC72A96F7F700343253 /* Profile */,
 				F002775F2A81E9D7008A9615 /* NewProfile */,
 				F0600AC82A96F7FF00343253 /* Project */,
+				F00277672A828F3F008A9615 /* NewProjectScreen */,
 				F0600AC92A96F80600343253 /* Settings */,
 			);
 			path = MVPScreens;
@@ -418,7 +419,6 @@
 				F04712A42A75F9D500DC0A68 /* AppDetailView.swift */,
 				F047129C2A75D74900DC0A68 /* SocialLinkViews.swift */,
 				F0600AD02A9EA27F00343253 /* MagnificationView.swift */,
-				F04712A22A75D7E300DC0A68 /* ScrollableAppView.swift */,
 			);
 			path = OtherScreens;
 			sourceTree = "<group>";

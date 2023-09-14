@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 class SkillsViewModel: ObservableObject {
     
     @Published var skillModel: SkillModel? = nil

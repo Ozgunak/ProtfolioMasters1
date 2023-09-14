@@ -68,7 +68,7 @@ final class FirestoreManager {
             if let error {
                 print("Error: deleting skills \(error.localizedDescription)")
             } else {
-                print("succesfully deleted")
+                print("succesfully deleted skill")
             }
         }
     }
@@ -87,7 +87,27 @@ final class FirestoreManager {
             if let error {
                 print("Error: deleting experiences \(error.localizedDescription)")
             } else {
-                print("succesfully deleted")
+                print("succesfully deleted experience")
+            }
+        }
+    }
+    
+    // MARK: Cover Project CRUD
+
+    func createUserCoverProject(userID: String, coverProjectModel: CoverProjectModel) async throws {
+        try await userCollection.document(userID).collection("projects").addDocument(data: coverProjectModel.dictionary)
+    }
+    
+    func getUserCoverProject(userID: String) async throws -> [CoverProjectModel] {
+        return try await userCollection.document(userID).collection("projects").order(by: "publishTime", descending: true).getDocuments(as: CoverProjectModel.self)
+    }
+    
+    func deleteCoverProject(userID: String, projectID: String) {
+        userCollection.document(userID).collection("projects").document(projectID).delete() { error in
+            if let error {
+                print("Error: deleting projects \(error.localizedDescription)")
+            } else {
+                print("succesfully deleted project")
             }
         }
     }
@@ -148,6 +168,8 @@ final class FirestoreManager {
                     return false
                 }
             }
+            
+            try await createUserCoverProject(userID: profileID, coverProjectModel: CoverProjectModel(projectName: project.name, image: imageList.first ?? "", keywords: "", isStillWorking: false, details: project.description))
             
             // save image names on project file
             

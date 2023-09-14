@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 class ExperienceViewModel: ObservableObject {
     
     @Published var experienceModel: ExperienceModel? = nil

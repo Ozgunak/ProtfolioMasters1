@@ -139,9 +139,9 @@ final class FirestoreManager {
             var imageList: [String] = []
 
             // MARK: Save images to store
-            var newImages = images.filter( {$0 != nil })
+            let newImages = images.filter( {$0 != nil })
             for image in newImages {
-                var photoName = UUID().uuidString // This will be the name of the image file
+                let photoName = UUID().uuidString // This will be the name of the image file
                 let storageRef = storage.reference().child("projects/\(profileID)/\(refID)/\(photoName).jpeg")
                 guard let resizedImage = image?.jpegData(compressionQuality: 0.2) else {
                     print("😡 ERROR: Could not resize image")
@@ -175,7 +175,7 @@ final class FirestoreManager {
             
             let projString = "flowItem/\(profileID)/projects"
             
-            var newProj = FlowItemModel(id: refID,
+            let newProj = FlowItemModel(id: refID,
                                         name: userProfile.name ?? "New User",
                                         title: userProfile.title ?? "",
                                         projectName: project.name,
@@ -199,7 +199,7 @@ final class FirestoreManager {
             }
         }
         else {
-            var newProj = FlowItemModel(id: refID,
+            let newProj = FlowItemModel(id: refID,
                                         name: userProfile.name ?? "New User",
                                         title: userProfile.title ?? "",
                                         projectName: project.name,

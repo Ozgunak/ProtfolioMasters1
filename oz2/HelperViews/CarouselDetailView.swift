@@ -37,13 +37,14 @@ struct CarouselImage: View {
                             .frame(width: UIScreen.main.bounds.width / 2)
                             .shadow(radius: 5)
                     } placeholder: {
-                        Image("phone")
-                            .resizable()
-                            .scaledToFit()
+                        ProgressView()
+//                        Image("phone")
+//                            .resizable()
+//                            .scaledToFit()
                             .frame(width: UIScreen.main.bounds.width / 2)
-                            .clipped()
-                            .shadow(radius: 5)
-                            .scaleEffect(self.scaleEffect(for: geometry))
+//                            .clipped()
+//                            .shadow(radius: 5)
+//                            .scaleEffect(self.scaleEffect(for: geometry))
                     }
                 }
             } label: {

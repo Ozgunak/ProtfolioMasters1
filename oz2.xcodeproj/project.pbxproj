@@ -202,6 +202,7 @@
 			children = (
 				F04712992A75D6E900DC0A68 /* InfoView.swift */,
 				F04712A22A75D7E300DC0A68 /* ScrollableAppView.swift */,
+				F0FB2C582AB51AF200C5A089 /* SubView */,
 				F02ADE552AAFF8AC0057DFAE /* Experience View */,
 				F02ADE542AAFF44A0057DFAE /* Skill View */,
 			);
@@ -299,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				F0CD401E2A7AFB5700420ADE /* Login */,
-				F0600AC42A95774D00343253 /* Main */,
 				F0280E402A8BD5C6003903E3 /* ProjectDetail */,
 				F04712982A75D6D200DC0A68 /* Home */,
 				F00277662A821856008A9615 /* UsersProfileScreen */,
@@ -341,6 +341,7 @@
 				F0CD401D2A7AFB5000420ADE /* Splash */,
 				F0600AC02A95659700343253 /* TabView */,
 				F0600AC62A96F7EE00343253 /* Login */,
+				F0600AC42A95774D00343253 /* Main */,
 				F0600AC72A96F7F700343253 /* Profile */,
 				F002775F2A81E9D7008A9615 /* NewProfile */,
 				F0600AC82A96F7FF00343253 /* Project */,
@@ -421,6 +422,13 @@
 				F0600AD02A9EA27F00343253 /* MagnificationView.swift */,
 			);
 			path = OtherScreens;
+			sourceTree = "<group>";
+		};
+		F0FB2C582AB51AF200C5A089 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -20,10 +20,7 @@ struct FlowListView: View {
     @State private var titleText: String = "Welcome"
     @State private var queries: [QueryPredicate] = []
     
-    
-    
 
-    
     var body: some View {
         
             List {
@@ -44,8 +41,8 @@ struct FlowListView: View {
             .task {
                 do {
                     try await viewModel.loadCurrentUser()
-                    if let id = viewModel.user?.userId {
-                        titleText = "Welcome \(id)"
+                    if let name = viewModel.user?.name {
+                        titleText = "Welcome \(name)"
                     }
                 } catch {
                     print("Error: cant load current user \(error.localizedDescription)")
